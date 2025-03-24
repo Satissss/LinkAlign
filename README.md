@@ -4,7 +4,7 @@
 
 Schema linking is a critical bottleneck in achieving human-level performance in Text to-SQL tasks, particularly in real-world large scale multi-database scenarios. Addressing schema linking faces two major challenges: (1) Database Retrieval: selecting the correct database from a large schema pool in multi database settings, while filtering out irrele vant ones. (2) Schema Item Grounding: ac curately identifying the relevant tables and columns from within a large and redundant schema for SQL generation. To address this, we introduce LinkAlign, a novel framework that can effectively adapt existing baselines to real-world environments by systematically ad dressing schema linking. Our framework com prises three key steps: multi-round semantic enhanced retrieval and irrelevant information isolation for Challenge 1, and schema extrac tion enhancement for Challenge 2. We evalu ate our method performance of schema linking on the SPIDER and BIRD benchmarks, and the ability to adapt existing Text-to-SQL mod els to real-world environments on the SPIDER 2.0-lite benchmark. Experiments show that LinkAlign outperforms existing baselines in multi-database settings, demonstrating its effec tiveness and robustness. On the other hand, our method ranks highest among models excluding those using long chain-of-thought reasoning LLMs. This work bridges the gap between current research and real-world scenarios, pro viding a practical solution for robust and scal able schema linking. 
 
-![Overview1](assets/Overview1.png)
+![Overview1](./Overview1.png)
 
 ## Requirements
 
