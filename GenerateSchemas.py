@@ -276,9 +276,19 @@ def get_schema(
                                                                           )
     sub_df = parse_schemas_from_nodes(nodes_lis)
     df = pd.concat([df, sub_df], axis=0)
-
     df.to_excel(rf"{save_path}\{file_name}.xlsx", index=False)
-    return df
+
+    # 模式链接，提取生成 SQL 语句所需的表和列
+    context = parse_schema_from_df(df)
+    schema_links = SchemaLinkingTool.generate_by_multi_agent(llm=llm, query=row["question"],
+                                                             context=context,
+                                                             turn_n=1, linker_num=3
+                                                             )
+    schema_links = schema_links.replace("`", "").replace("\n", "").replace("python", "")
+    with open(rf".\spider2_dev\schema_links\{file_name}.txt", "w", encoding="utf-8") as f:
+        f.write(schema_links)
+
+    return df, schema_links
 
 
 def process_row(index, row, pbar):
