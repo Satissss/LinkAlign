@@ -18,7 +18,7 @@ from utils import Logger
 from prompts.din_prompt import *
 
 # ------------------------------------------------------------------------------------------------------
-QWEN_API_KEY = "sk-3f43effded4d49fc934829ee24e79f1d"
+QWEN_API_KEY = "..."
 QWEN_MODEL = "deepseek-v3"  # "qwen-plus"  qwen2.5-coder-32b-instruct
 open_agent = True
 open_revise_from_feedback = True
