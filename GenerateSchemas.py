@@ -1,6 +1,6 @@
 import json
 import os
-
+import argparse
 import pandas as pd
 from llama_index.core.indices.vector_store import VectorIndexRetriever
 
@@ -15,13 +15,24 @@ llm = QwenModel(model_name="qwen-turbo", temperature=0.85)
 filter_llm = QwenModel(model_name="qwen-turbo", temperature=0.42)
 
 
+def parse_arguments():
+    parser = argparse.ArgumentParser(description="Run the script with external parameters.")
+    parser.add_argument("--save_path", type=str, required=False, default=r".\spider2_dev\instance_schemas")
+    parser.add_argument("--schema_path", type=str, required=False, default=r".\spider2_dev\schemas")
+    parser.add_argument("--dataset", type=str, required=False, default=r".\spider2_dev\spider2_dev_preprocessed.json")
+    parser.add_argument("--db_info_path", type=str, required=False, default=r'.\spider2_dev\db_info.json')
+    parser.add_argument("--links_save_path", type=str, required=False, default=r".\schema_links\spider2_other")
+
+    return parser.parse_args()
+
+
 def load_db_size(db_id: str):
     db_size = [row["count"] for row in db_info if row["db_id"].lower() == db_id.lower()][0]
     return db_size
 
 
 def parse_schemas_from_file(db_id: str):
-    base_schema_dir = r".\spider2_dev\schemas"
+    base_schema_dir = schema_path
     file_lis = get_sql_files(rf"{base_schema_dir}\{db_id}", ".json")
 
     schema_lis = []
@@ -305,12 +316,14 @@ def process_row(index, row, pbar):
 
 
 if __name__ == "__main__":
-    save_path = rf".\spider2_dev\instance_schemas"
-    schema_path = r".\spider2_dev\schemas"
-    DATASET = r".\spider2_dev\spider2_dev_preprocessed.json"
-
+    args = parse_arguments()
+    # 加载命令行参数
+    save_path = args.save_path
+    schema_path = args.schema_path
+    DATASET = args.dataset
+    db_info_path = args.db_info_path
     # 加载保存数据库规模的 json 文档
-    with open(r'.\spider2_dev\db_info.json', 'r') as file:
+    with open(db_info_path, 'r', encoding='utf-8') as file:
         db_info = json.load(file)
 
     val_df = load_data(DATASET)
@@ -321,4 +334,4 @@ if __name__ == "__main__":
             for index, row in val_df.iterrows():
                 inputs.append((index, row, pbar))
 
-            executor.map(lambda args: process_row(*args), inputs)
+            executor.map(lambda x: process_row(*x), inputs)
