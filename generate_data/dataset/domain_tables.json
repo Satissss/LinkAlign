@@ -1,0 +1,5746 @@
+[
+    [
+        {
+            "column_name": "course_id",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "course"
+            }
+        },
+        {
+            "column_name": "title",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "course"
+            }
+        },
+        {
+            "column_name": "credits",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "course"
+            }
+        },
+        {
+            "column_name": "dept_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "course"
+            }
+        },
+        {
+            "column_name": "prereq_id",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "prereq"
+            }
+        },
+        {
+            "column_name": "sec_id",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "section"
+            }
+        },
+        {
+            "column_name": "semester",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "section"
+            }
+        },
+        {
+            "column_name": "year",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "section"
+            }
+        },
+        {
+            "column_name": "ID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "student"
+            }
+        },
+        {
+            "column_name": "name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "student"
+            }
+        },
+        {
+            "column_name": "tot_cred",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "student"
+            }
+        },
+        {
+            "column_name": "ID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "takes"
+            }
+        },
+        {
+            "column_name": "course_id",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "takes"
+            }
+        },
+        {
+            "column_name": "sec_id",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "takes"
+            }
+        },
+        {
+            "column_name": "semester",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "takes"
+            }
+        },
+        {
+            "column_name": "year",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "takes"
+            }
+        },
+        {
+            "column_name": "grade",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "takes"
+            }
+        },
+        {
+            "column_name": "ID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "instructor"
+            }
+        },
+        {
+            "column_name": "name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "instructor"
+            }
+        },
+        {
+            "column_name": "salary",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_2",
+                "table_name": "instructor"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "aid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "author"
+            }
+        },
+        {
+            "column_name": "oid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "organization"
+            }
+        },
+        {
+            "column_name": "cid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "conference"
+            }
+        },
+        {
+            "column_name": "jid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "journal"
+            }
+        },
+        {
+            "column_name": "did",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "domain"
+            }
+        },
+        {
+            "column_name": "kid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "keyword"
+            }
+        },
+        {
+            "column_name": "pid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "publication"
+            }
+        },
+        {
+            "column_name": "aid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "writes"
+            }
+        },
+        {
+            "column_name": "pid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "publication_keyword"
+            }
+        },
+        {
+            "column_name": "did",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "domain_author"
+            }
+        },
+        {
+            "column_name": "did",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "domain_conference"
+            }
+        },
+        {
+            "column_name": "did",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "domain_journal"
+            }
+        },
+        {
+            "column_name": "did",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "domain_publication"
+            }
+        },
+        {
+            "column_name": "did",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "academic",
+                "table_name": "domain_keyword"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "DEPT_STORE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "department_store",
+                "table_name": "Department_Stores"
+            }
+        },
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "department_store",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "ORDER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "department_store",
+                "table_name": "Customer_Orders"
+            }
+        },
+        {
+            "column_name": "PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "department_store",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "STAFF_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "department_store",
+                "table_name": "Staff"
+            }
+        },
+        {
+            "column_name": "DEPARTMENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "department_store",
+                "table_name": "Departments"
+            }
+        },
+        {
+            "column_name": "SUPPLIER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "department_store",
+                "table_name": "Suppliers"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "PROPERTY_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Properties"
+            }
+        },
+        {
+            "column_name": "PROPERTY_ADDRESS_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Properties"
+            }
+        },
+        {
+            "column_name": "OWNER_USER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Properties"
+            }
+        },
+        {
+            "column_name": "PROPERTY_TYPE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Properties"
+            }
+        },
+        {
+            "column_name": "DATE_ON_MARKET",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Properties"
+            }
+        },
+        {
+            "column_name": "DATE_OFF_MARKET",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Properties"
+            }
+        },
+        {
+            "column_name": "FEATURE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Features"
+            }
+        },
+        {
+            "column_name": "PROPERTY_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Property_Features"
+            }
+        },
+        {
+            "column_name": "ROOM_NUMBER",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Rooms"
+            }
+        },
+        {
+            "column_name": "ROOM_TYPE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Rooms"
+            }
+        },
+        {
+            "column_name": "USER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Users"
+            }
+        },
+        {
+            "column_name": "AGE_CATEGORY_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Users"
+            }
+        },
+        {
+            "column_name": "USER_CATEGORY_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Users"
+            }
+        },
+        {
+            "column_name": "IS_BUYER",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Users"
+            }
+        },
+        {
+            "column_name": "IS_SELLER",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "Users"
+            }
+        },
+        {
+            "column_name": "SEARCH_STRING",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "User_Searches"
+            }
+        },
+        {
+            "column_name": "USER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "User_Property_History"
+            }
+        },
+        {
+            "column_name": "PROPERTY_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "User_Property_History"
+            }
+        },
+        {
+            "column_name": "DATESTAMP",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "real_estate_rentals",
+                "table_name": "User_Property_History"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "ASSET_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "assets_maintenance",
+                "table_name": "Assets"
+            }
+        },
+        {
+            "column_name": "MAINTENANCE_CONTRACT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "assets_maintenance",
+                "table_name": "Maintenance_Contracts"
+            }
+        },
+        {
+            "column_name": "ENGINEER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "assets_maintenance",
+                "table_name": "Maintenance_Engineers"
+            }
+        },
+        {
+            "column_name": "FAULT_LOG_ENTRY_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "assets_maintenance",
+                "table_name": "Fault_Log"
+            }
+        },
+        {
+            "column_name": "PART_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "assets_maintenance",
+                "table_name": "Parts"
+            }
+        },
+        {
+            "column_name": "SKILL_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "assets_maintenance",
+                "table_name": "Skills"
+            }
+        },
+        {
+            "column_name": "STAFF_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "assets_maintenance",
+                "table_name": "Staff"
+            }
+        },
+        {
+            "column_name": "COMPANY_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "assets_maintenance",
+                "table_name": "Third_Party_Companies"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "COURSE_ID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "student_assessment",
+                "table_name": "Courses"
+            }
+        },
+        {
+            "column_name": "STUDENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_assessment",
+                "table_name": "Students"
+            }
+        },
+        {
+            "column_name": "PERSON_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_assessment",
+                "table_name": "People"
+            }
+        },
+        {
+            "column_name": "ADDRESS_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_assessment",
+                "table_name": "Addresses"
+            }
+        },
+        {
+            "column_name": "DATE_OF_ATTENDANCE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "student_assessment",
+                "table_name": "Student_Course_Attendance"
+            }
+        },
+        {
+            "column_name": "REGISTRATION_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "student_assessment",
+                "table_name": "Student_Course_Registrations"
+            }
+        },
+        {
+            "column_name": "CANDIDATE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_assessment",
+                "table_name": "Candidates"
+            }
+        },
+        {
+            "column_name": "ASSESSMENT_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "student_assessment",
+                "table_name": "Candidate_Assessments"
+            }
+        },
+        {
+            "column_name": "PERSON_ADDRESS_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_assessment",
+                "table_name": "People_Addresses"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "DOG_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "dog_kennels",
+                "table_name": "Dogs"
+            }
+        },
+        {
+            "column_name": "OWNER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "dog_kennels",
+                "table_name": "Owners"
+            }
+        },
+        {
+            "column_name": "BREED_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "dog_kennels",
+                "table_name": "Dogs"
+            }
+        },
+        {
+            "column_name": "SIZE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "dog_kennels",
+                "table_name": "Dogs"
+            }
+        },
+        {
+            "column_name": "TREATMENT_TYPE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "dog_kennels",
+                "table_name": "Treatments"
+            }
+        },
+        {
+            "column_name": "PROFESSIONAL_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "dog_kennels",
+                "table_name": "Treatments"
+            }
+        },
+        {
+            "column_name": "DATE_OF_TREATMENT",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "dog_kennels",
+                "table_name": "Treatments"
+            }
+        },
+        {
+            "column_name": "COST_OF_TREATMENT",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "dog_kennels",
+                "table_name": "Treatments"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Event_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "solvency_ii",
+                "table_name": "Events"
+            }
+        },
+        {
+            "column_name": "Finance_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "solvency_ii",
+                "table_name": "Finances"
+            }
+        },
+        {
+            "column_name": "Asset_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "solvency_ii",
+                "table_name": "Assets"
+            }
+        },
+        {
+            "column_name": "Product_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "solvency_ii",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "Party_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "solvency_ii",
+                "table_name": "Parties"
+            }
+        },
+        {
+            "column_name": "Channel_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "solvency_ii",
+                "table_name": "Channels"
+            }
+        },
+        {
+            "column_name": "Role_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "solvency_ii",
+                "table_name": "Parties_in_Events"
+            }
+        },
+        {
+            "column_name": "Product_Type_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "solvency_ii",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "Product_Price",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "solvency_ii",
+                "table_name": "Products"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "City_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "city_record",
+                "table_name": "city"
+            }
+        },
+        {
+            "column_name": "Host_City",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "city_record",
+                "table_name": "hosting_city"
+            }
+        },
+        {
+            "column_name": "Match_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "city_record",
+                "table_name": "match"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "event"
+            }
+        },
+        {
+            "column_name": "Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "event"
+            }
+        },
+        {
+            "column_name": "Stadium_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "event"
+            }
+        },
+        {
+            "column_name": "Year",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "event"
+            }
+        },
+        {
+            "column_name": "ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "record"
+            }
+        },
+        {
+            "column_name": "Result",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "record"
+            }
+        },
+        {
+            "column_name": "Swimmer_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "record"
+            }
+        },
+        {
+            "column_name": "Event_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "record"
+            }
+        },
+        {
+            "column_name": "ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "stadium"
+            }
+        },
+        {
+            "column_name": "name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "stadium"
+            }
+        },
+        {
+            "column_name": "Capacity",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "stadium"
+            }
+        },
+        {
+            "column_name": "City",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "stadium"
+            }
+        },
+        {
+            "column_name": "Country",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "stadium"
+            }
+        },
+        {
+            "column_name": "Opening_year",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "stadium"
+            }
+        },
+        {
+            "column_name": "ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        },
+        {
+            "column_name": "name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        },
+        {
+            "column_name": "Nationality",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        },
+        {
+            "column_name": "meter_100",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        },
+        {
+            "column_name": "meter_200",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        },
+        {
+            "column_name": "meter_300",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        },
+        {
+            "column_name": "meter_400",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        },
+        {
+            "column_name": "meter_500",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        },
+        {
+            "column_name": "meter_600",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        },
+        {
+            "column_name": "meter_700",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        },
+        {
+            "column_name": "Time",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "swimming",
+                "table_name": "swimmer"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "course_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_learning",
+                "table_name": "Courses"
+            }
+        },
+        {
+            "column_name": "author_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_learning",
+                "table_name": "Course_Authors_and_Tutors"
+            }
+        },
+        {
+            "column_name": "student_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_learning",
+                "table_name": "Students"
+            }
+        },
+        {
+            "column_name": "registration_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_learning",
+                "table_name": "Student_Course_Enrolment"
+            }
+        },
+        {
+            "column_name": "date_of_enrolment",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "e_learning",
+                "table_name": "Student_Course_Enrolment"
+            }
+        },
+        {
+            "column_name": "subject_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_learning",
+                "table_name": "Subjects"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "aid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "actor"
+            }
+        },
+        {
+            "column_name": "msid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "cast"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "classification"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "company"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "copyright"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "directed_by"
+            }
+        },
+        {
+            "column_name": "did",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "director"
+            }
+        },
+        {
+            "column_name": "gid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "genre"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "keyword"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "made_by"
+            }
+        },
+        {
+            "column_name": "mid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "movie"
+            }
+        },
+        {
+            "column_name": "pid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "producer"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "tags"
+            }
+        },
+        {
+            "column_name": "sid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "tv_series"
+            }
+        },
+        {
+            "column_name": "wid",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "writer"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "imdb",
+                "table_name": "written_by"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "BOOKING_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Bookings"
+            }
+        },
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Products_Booked"
+            }
+        },
+        {
+            "column_name": "PAYMENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Payments"
+            }
+        },
+        {
+            "column_name": "COUPON_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Discount_Coupons"
+            }
+        },
+        {
+            "column_name": "BOOKING_START_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Bookings"
+            }
+        },
+        {
+            "column_name": "BOOKING_END_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Bookings"
+            }
+        },
+        {
+            "column_name": "AMOUNT_PAYABLE",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Bookings"
+            }
+        },
+        {
+            "column_name": "PAYMENT_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Payments"
+            }
+        },
+        {
+            "column_name": "DAILY_HIRE_COST",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Products_for_Hire"
+            }
+        },
+        {
+            "column_name": "BOOKED_COUNT",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "products_for_hire",
+                "table_name": "Products_Booked"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "AlbumId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "Album"
+            }
+        },
+        {
+            "column_name": "ArtistId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "Artist"
+            }
+        },
+        {
+            "column_name": "CustomerId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "Customer"
+            }
+        },
+        {
+            "column_name": "EmployeeId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "Employee"
+            }
+        },
+        {
+            "column_name": "GenreId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "Genre"
+            }
+        },
+        {
+            "column_name": "InvoiceId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "Invoice"
+            }
+        },
+        {
+            "column_name": "InvoiceLineId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "InvoiceLine"
+            }
+        },
+        {
+            "column_name": "MediaTypeId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "MediaType"
+            }
+        },
+        {
+            "column_name": "PlaylistId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "Playlist"
+            }
+        },
+        {
+            "column_name": "PlaylistTrackId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "PlaylistTrack"
+            }
+        },
+        {
+            "column_name": "TrackId",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "chinook_1",
+                "table_name": "Track"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "ORDER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_commerce",
+                "table_name": "Orders"
+            }
+        },
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_commerce",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_commerce",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "INVOICE_NUMBER",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_commerce",
+                "table_name": "Invoices"
+            }
+        },
+        {
+            "column_name": "ORDER_ITEM_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_commerce",
+                "table_name": "Order_Items"
+            }
+        },
+        {
+            "column_name": "SHIPMENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_commerce",
+                "table_name": "Shipments"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Customer_Event_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Customer_Events"
+            }
+        },
+        {
+            "column_name": "customer_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Customer_Events"
+            }
+        },
+        {
+            "column_name": "property_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Customer_Events"
+            }
+        },
+        {
+            "column_name": "resident_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Customer_Events"
+            }
+        },
+        {
+            "column_name": "Customer_Event_Note_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Customer_Event_Notes"
+            }
+        },
+        {
+            "column_name": "Customer_Event_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Customer_Event_Notes"
+            }
+        },
+        {
+            "column_name": "resident_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Residents"
+            }
+        },
+        {
+            "column_name": "property_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Residents"
+            }
+        },
+        {
+            "column_name": "date_moved_in",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Residents"
+            }
+        },
+        {
+            "column_name": "date_moved_out",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Residents"
+            }
+        },
+        {
+            "column_name": "resident_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Residents_Services"
+            }
+        },
+        {
+            "column_name": "service_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Residents_Services"
+            }
+        },
+        {
+            "column_name": "service_type_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Services"
+            }
+        },
+        {
+            "column_name": "organization_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "local_govt_and_lot",
+                "table_name": "Services"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "AGENCY_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "advertising_agencies",
+                "table_name": "Agencies"
+            }
+        },
+        {
+            "column_name": "CLIENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "advertising_agencies",
+                "table_name": "Clients"
+            }
+        },
+        {
+            "column_name": "INVOICE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "advertising_agencies",
+                "table_name": "Invoices"
+            }
+        },
+        {
+            "column_name": "MEETING_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "advertising_agencies",
+                "table_name": "Meetings"
+            }
+        },
+        {
+            "column_name": "PAYMENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "advertising_agencies",
+                "table_name": "Payments"
+            }
+        },
+        {
+            "column_name": "STAFF_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "advertising_agencies",
+                "table_name": "Staff"
+            }
+        },
+        {
+            "column_name": "MEETING_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "advertising_agencies",
+                "table_name": "Staff_in_Meetings"
+            }
+        },
+        {
+            "column_name": "STAFF_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "advertising_agencies",
+                "table_name": "Staff_in_Meetings"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "driving_school",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "LESSON_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "driving_school",
+                "table_name": "Lessons"
+            }
+        },
+        {
+            "column_name": "STAFF_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "driving_school",
+                "table_name": "Staff"
+            }
+        },
+        {
+            "column_name": "VEHICLE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "driving_school",
+                "table_name": "Vehicles"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Club_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "sports_competition",
+                "table_name": "club"
+            }
+        },
+        {
+            "column_name": "Rank",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "sports_competition",
+                "table_name": "club_rank"
+            }
+        },
+        {
+            "column_name": "Competition_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "sports_competition",
+                "table_name": "competition"
+            }
+        },
+        {
+            "column_name": "Score",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "sports_competition",
+                "table_name": "competition_result"
+            }
+        },
+        {
+            "column_name": "Player_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "sports_competition",
+                "table_name": "player"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "process_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Doc_Workflow",
+                "table_name": "Business_Processes"
+            }
+        },
+        {
+            "column_name": "next_process_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Doc_Workflow",
+                "table_name": "Business_Processes"
+            }
+        },
+        {
+            "column_name": "document_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Doc_Workflow",
+                "table_name": "Documents"
+            }
+        },
+        {
+            "column_name": "author_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Workflow",
+                "table_name": "Documents"
+            }
+        },
+        {
+            "column_name": "process_outcome_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Workflow",
+                "table_name": "Documents_Processes"
+            }
+        },
+        {
+            "column_name": "process_status_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Workflow",
+                "table_name": "Documents_Processes"
+            }
+        },
+        {
+            "column_name": "staff_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Doc_Workflow",
+                "table_name": "Staff"
+            }
+        },
+        {
+            "column_name": "staff_role_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Workflow",
+                "table_name": "Staff_in_Processes"
+            }
+        },
+        {
+            "column_name": "date_from",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "cre_Doc_Workflow",
+                "table_name": "Staff_in_Processes"
+            }
+        },
+        {
+            "column_name": "date_to",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "cre_Doc_Workflow",
+                "table_name": "Staff_in_Processes"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "customer_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_orders",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "order_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_orders",
+                "table_name": "Orders"
+            }
+        },
+        {
+            "column_name": "product_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_orders",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "invoice_number",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_orders",
+                "table_name": "Invoices"
+            }
+        },
+        {
+            "column_name": "order_item_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_orders",
+                "table_name": "Order_Items"
+            }
+        },
+        {
+            "column_name": "shipment_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_orders",
+                "table_name": "Shipments"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Policy_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_policies",
+                "table_name": "Customer_Policies"
+            }
+        },
+        {
+            "column_name": "Customer_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_policies",
+                "table_name": "Customer_Policies"
+            }
+        },
+        {
+            "column_name": "Claim_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_policies",
+                "table_name": "Claims"
+            }
+        },
+        {
+            "column_name": "Settlement_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_policies",
+                "table_name": "Settlements"
+            }
+        },
+        {
+            "column_name": "Payment_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_policies",
+                "table_name": "Payments"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "student_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Students_Information_Systems",
+                "table_name": "Students"
+            }
+        },
+        {
+            "column_name": "achievement_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Students_Information_Systems",
+                "table_name": "Achievements"
+            }
+        },
+        {
+            "column_name": "achievement_type_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Students_Information_Systems",
+                "table_name": "Ref_Achievement_Type"
+            }
+        },
+        {
+            "column_name": "student_address_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Students_Information_Systems",
+                "table_name": "Students_Addresses"
+            }
+        },
+        {
+            "column_name": "address_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Students_Information_Systems",
+                "table_name": "Addresses"
+            }
+        },
+        {
+            "column_name": "event_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Students_Information_Systems",
+                "table_name": "Student_Events"
+            }
+        },
+        {
+            "column_name": "event_type_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Students_Information_Systems",
+                "table_name": "Ref_Event_Types"
+            }
+        },
+        {
+            "column_name": "transcript_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Students_Information_Systems",
+                "table_name": "Transcripts"
+            }
+        },
+        {
+            "column_name": "teacher_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Students_Information_Systems",
+                "table_name": "Teachers"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "INDIVIDUAL_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_government",
+                "table_name": "Individuals"
+            }
+        },
+        {
+            "column_name": "ORGANIZATION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_government",
+                "table_name": "Organizations"
+            }
+        },
+        {
+            "column_name": "PARTY_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_government",
+                "table_name": "Parties"
+            }
+        },
+        {
+            "column_name": "SERVICE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_government",
+                "table_name": "Services"
+            }
+        },
+        {
+            "column_name": "FORM_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_government",
+                "table_name": "Forms"
+            }
+        },
+        {
+            "column_name": "ADDRESS_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_government",
+                "table_name": "Addresses"
+            }
+        },
+        {
+            "column_name": "ORGANIZATION_CONTACT_INDIVIDUALS_INDIVIDUAL_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_government",
+                "table_name": "Organization_Contact_Individuals"
+            }
+        },
+        {
+            "column_name": "PARTY_ADDRESSES_PARTY_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_government",
+                "table_name": "Party_Addresses"
+            }
+        },
+        {
+            "column_name": "PARTY_FORMS_PARTY_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_government",
+                "table_name": "Party_Forms"
+            }
+        },
+        {
+            "column_name": "PARTY_SERVICES_BOOKING_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "e_government",
+                "table_name": "Party_Services"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Physician",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Affiliated_With"
+            }
+        },
+        {
+            "column_name": "Department",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Affiliated_With"
+            }
+        },
+        {
+            "column_name": "PrimaryAffiliation",
+            "column_types": "boolean",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Affiliated_With"
+            }
+        },
+        {
+            "column_name": "AppointmentID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Appointment"
+            }
+        },
+        {
+            "column_name": "Patient",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Appointment"
+            }
+        },
+        {
+            "column_name": "PrepNurse",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Appointment"
+            }
+        },
+        {
+            "column_name": "Start",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Appointment"
+            }
+        },
+        {
+            "column_name": "End",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Appointment"
+            }
+        },
+        {
+            "column_name": "ExaminationRoom",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Appointment"
+            }
+        },
+        {
+            "column_name": "DepartmentID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Department"
+            }
+        },
+        {
+            "column_name": "Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Department"
+            }
+        },
+        {
+            "column_name": "Head",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Department"
+            }
+        },
+        {
+            "column_name": "Code",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Medication"
+            }
+        },
+        {
+            "column_name": "Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Medication"
+            }
+        },
+        {
+            "column_name": "Brand",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Medication"
+            }
+        },
+        {
+            "column_name": "Description",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Medication"
+            }
+        },
+        {
+            "column_name": "EmployeeID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Nurse"
+            }
+        },
+        {
+            "column_name": "Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Nurse"
+            }
+        },
+        {
+            "column_name": "Position",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Nurse"
+            }
+        },
+        {
+            "column_name": "Registered",
+            "column_types": "boolean",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Nurse"
+            }
+        },
+        {
+            "column_name": "SSN",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Nurse"
+            }
+        },
+        {
+            "column_name": "Nurse",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "On_Call"
+            }
+        },
+        {
+            "column_name": "BlockFloor",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "On_Call"
+            }
+        },
+        {
+            "column_name": "BlockCode",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "On_Call"
+            }
+        },
+        {
+            "column_name": "OnCallStart",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "On_Call"
+            }
+        },
+        {
+            "column_name": "OnCallEnd",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "On_Call"
+            }
+        },
+        {
+            "column_name": "SSN",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Patient"
+            }
+        },
+        {
+            "column_name": "Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Patient"
+            }
+        },
+        {
+            "column_name": "Address",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Patient"
+            }
+        },
+        {
+            "column_name": "Phone",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Patient"
+            }
+        },
+        {
+            "column_name": "InsuranceID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Patient"
+            }
+        },
+        {
+            "column_name": "PCP",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Patient"
+            }
+        },
+        {
+            "column_name": "EmployeeID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Physician"
+            }
+        },
+        {
+            "column_name": "Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Physician"
+            }
+        },
+        {
+            "column_name": "Position",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Physician"
+            }
+        },
+        {
+            "column_name": "SSN",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Physician"
+            }
+        },
+        {
+            "column_name": "Physician",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Prescribes"
+            }
+        },
+        {
+            "column_name": "Patient",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Prescribes"
+            }
+        },
+        {
+            "column_name": "Medication",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Prescribes"
+            }
+        },
+        {
+            "column_name": "Date",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Prescribes"
+            }
+        },
+        {
+            "column_name": "Appointment",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Prescribes"
+            }
+        },
+        {
+            "column_name": "Dose",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Prescribes"
+            }
+        },
+        {
+            "column_name": "Code",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Procedures"
+            }
+        },
+        {
+            "column_name": "Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Procedures"
+            }
+        },
+        {
+            "column_name": "Cost",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Procedures"
+            }
+        },
+        {
+            "column_name": "RoomNumber",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Room"
+            }
+        },
+        {
+            "column_name": "RoomType",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Room"
+            }
+        },
+        {
+            "column_name": "BlockFloor",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Room"
+            }
+        },
+        {
+            "column_name": "BlockCode",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Room"
+            }
+        },
+        {
+            "column_name": "Unavailable",
+            "column_types": "boolean",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Room"
+            }
+        },
+        {
+            "column_name": "StayID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Stay"
+            }
+        },
+        {
+            "column_name": "Patient",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Stay"
+            }
+        },
+        {
+            "column_name": "Room",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Stay"
+            }
+        },
+        {
+            "column_name": "StayStart",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Stay"
+            }
+        },
+        {
+            "column_name": "StayEnd",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Stay"
+            }
+        },
+        {
+            "column_name": "Physician",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Trained_In"
+            }
+        },
+        {
+            "column_name": "Treatment",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Trained_In"
+            }
+        },
+        {
+            "column_name": "CertificationDate",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Trained_In"
+            }
+        },
+        {
+            "column_name": "CertificationExpires",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Trained_In"
+            }
+        },
+        {
+            "column_name": "Patient",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Undergoes"
+            }
+        },
+        {
+            "column_name": "Procedures",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Undergoes"
+            }
+        },
+        {
+            "column_name": "Stay",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Undergoes"
+            }
+        },
+        {
+            "column_name": "DateUndergoes",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Undergoes"
+            }
+        },
+        {
+            "column_name": "Physician",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Undergoes"
+            }
+        },
+        {
+            "column_name": "AssistingNurse",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hospital_1",
+                "table_name": "Undergoes"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_campaigns_ecommerce",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "ORDER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_campaigns_ecommerce",
+                "table_name": "Customer_Orders"
+            }
+        },
+        {
+            "column_name": "PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_campaigns_ecommerce",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "MAILSHOT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_campaigns_ecommerce",
+                "table_name": "Mailshot_Campaigns"
+            }
+        },
+        {
+            "column_name": "ITEM_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_campaigns_ecommerce",
+                "table_name": "Order_Items"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "document_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Documents"
+            }
+        },
+        {
+            "column_name": "document_status_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Documents"
+            }
+        },
+        {
+            "column_name": "document_type_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Documents"
+            }
+        },
+        {
+            "column_name": "shipping_agent_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Documents"
+            }
+        },
+        {
+            "column_name": "receipt_date",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Documents"
+            }
+        },
+        {
+            "column_name": "employee_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Circulation_History"
+            }
+        },
+        {
+            "column_name": "draft_number",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Document_Drafts"
+            }
+        },
+        {
+            "column_name": "draft_details",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Document_Drafts"
+            }
+        },
+        {
+            "column_name": "mailing_date",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Documents_Mailed"
+            }
+        },
+        {
+            "column_name": "role_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Employees"
+            }
+        },
+        {
+            "column_name": "employee_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Employees"
+            }
+        },
+        {
+            "column_name": "document_status_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Ref_Document_Status"
+            }
+        },
+        {
+            "column_name": "document_type_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Ref_Document_Types"
+            }
+        },
+        {
+            "column_name": "shipping_agent_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Control_Systems",
+                "table_name": "Ref_Shipping_Agents"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "APT_BOOKING_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "Apartment_Bookings"
+            }
+        },
+        {
+            "column_name": "APT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "Apartment_Bookings"
+            }
+        },
+        {
+            "column_name": "GUEST_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "Apartment_Bookings"
+            }
+        },
+        {
+            "column_name": "BUILDING_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "Apartments"
+            }
+        },
+        {
+            "column_name": "APT_TYPE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "Apartments"
+            }
+        },
+        {
+            "column_name": "APT_NUMBER",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "Apartments"
+            }
+        },
+        {
+            "column_name": "GUEST_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "Guests"
+            }
+        },
+        {
+            "column_name": "GUEST_FIRST_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "Guests"
+            }
+        },
+        {
+            "column_name": "GUEST_LAST_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "Guests"
+            }
+        },
+        {
+            "column_name": "APT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "View_Unit_Status"
+            }
+        },
+        {
+            "column_name": "APT_BOOKING_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "View_Unit_Status"
+            }
+        },
+        {
+            "column_name": "STATUS_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "apartment_rentals",
+                "table_name": "View_Unit_Status"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "STUDENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_transcripts_tracking",
+                "table_name": "Students"
+            }
+        },
+        {
+            "column_name": "CURRENT_ADDRESS_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_transcripts_tracking",
+                "table_name": "Students"
+            }
+        },
+        {
+            "column_name": "DEGREE_PROGRAM_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_transcripts_tracking",
+                "table_name": "Student_Enrolment"
+            }
+        },
+        {
+            "column_name": "SEMESTER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_transcripts_tracking",
+                "table_name": "Student_Enrolment"
+            }
+        },
+        {
+            "column_name": "SECTION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_transcripts_tracking",
+                "table_name": "Student_Enrolment_Courses"
+            }
+        },
+        {
+            "column_name": "COURSE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_transcripts_tracking",
+                "table_name": "Courses"
+            }
+        },
+        {
+            "column_name": "TRANSCRIPT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_transcripts_tracking",
+                "table_name": "Transcripts"
+            }
+        },
+        {
+            "column_name": "SEMESTER_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "student_transcripts_tracking",
+                "table_name": "Semesters"
+            }
+        },
+        {
+            "column_name": "DEPARTMENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "student_transcripts_tracking",
+                "table_name": "Degree_Programs"
+            }
+        },
+        {
+            "column_name": "DEGREE_SUMMARY_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "student_transcripts_tracking",
+                "table_name": "Degree_Programs"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "problem_category_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "tracking_software_problems",
+                "table_name": "Problem_Category_Codes"
+            }
+        },
+        {
+            "column_name": "problem_log_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_software_problems",
+                "table_name": "Problem_Log"
+            }
+        },
+        {
+            "column_name": "problem_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_software_problems",
+                "table_name": "Problem_Log"
+            }
+        },
+        {
+            "column_name": "problem_status_code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "tracking_software_problems",
+                "table_name": "Problem_Status_Codes"
+            }
+        },
+        {
+            "column_name": "problem_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_software_problems",
+                "table_name": "Problems"
+            }
+        },
+        {
+            "column_name": "product_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_software_problems",
+                "table_name": "Problems"
+            }
+        },
+        {
+            "column_name": "product_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_software_problems",
+                "table_name": "Product"
+            }
+        },
+        {
+            "column_name": "staff_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_software_problems",
+                "table_name": "Staff"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Club_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "riding_club",
+                "table_name": "club"
+            }
+        },
+        {
+            "column_name": "Coach_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "riding_club",
+                "table_name": "coach"
+            }
+        },
+        {
+            "column_name": "Player_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "riding_club",
+                "table_name": "player"
+            }
+        },
+        {
+            "column_name": "Starting_year",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "riding_club",
+                "table_name": "player_coach"
+            }
+        },
+        {
+            "column_name": "Club_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "riding_club",
+                "table_name": "player_coach"
+            }
+        },
+        {
+            "column_name": "Rank",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "riding_club",
+                "table_name": "match_result"
+            }
+        },
+        {
+            "column_name": "Points",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "riding_club",
+                "table_name": "match_result"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "ACCOUNT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_card_transactions",
+                "table_name": "Accounts"
+            }
+        },
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_card_transactions",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "CARD_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_card_transactions",
+                "table_name": "Customers_Cards"
+            }
+        },
+        {
+            "column_name": "TRANSACTION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_card_transactions",
+                "table_name": "Financial_Transactions"
+            }
+        },
+        {
+            "column_name": "TRANSACTION_AMOUNT",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_card_transactions",
+                "table_name": "Financial_Transactions"
+            }
+        },
+        {
+            "column_name": "TRANSACTION_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "customers_card_transactions",
+                "table_name": "Financial_Transactions"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "world_1",
+                "table_name": "country"
+            }
+        },
+        {
+            "column_name": "Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "world_1",
+                "table_name": "country"
+            }
+        },
+        {
+            "column_name": "Population",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "world_1",
+                "table_name": "country"
+            }
+        },
+        {
+            "column_name": "CountryCode",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "world_1",
+                "table_name": "city"
+            }
+        },
+        {
+            "column_name": "Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "world_1",
+                "table_name": "city"
+            }
+        },
+        {
+            "column_name": "CountryCode",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "world_1",
+                "table_name": "countrylanguage"
+            }
+        },
+        {
+            "column_name": "Language",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "world_1",
+                "table_name": "countrylanguage"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "GRANT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_grants_for_research",
+                "table_name": "Grants"
+            }
+        },
+        {
+            "column_name": "ORGANISATION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_grants_for_research",
+                "table_name": "Organisations"
+            }
+        },
+        {
+            "column_name": "DOCUMENT_TYPE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "tracking_grants_for_research",
+                "table_name": "Documents"
+            }
+        },
+        {
+            "column_name": "PROJECT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_grants_for_research",
+                "table_name": "Projects"
+            }
+        },
+        {
+            "column_name": "STAFF_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tracking_grants_for_research",
+                "table_name": "Project_Staff"
+            }
+        },
+        {
+            "column_name": "ROLE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "tracking_grants_for_research",
+                "table_name": "Staff_Roles"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Aircraft_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "aircraft",
+                "table_name": "aircraft"
+            }
+        },
+        {
+            "column_name": "Airport_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "aircraft",
+                "table_name": "airport"
+            }
+        },
+        {
+            "column_name": "ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "aircraft",
+                "table_name": "airport_aircraft"
+            }
+        },
+        {
+            "column_name": "Pilot_Id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "aircraft",
+                "table_name": "pilot"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "ACCOUNT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_invoices",
+                "table_name": "Accounts"
+            }
+        },
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_invoices",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "TRANSACTION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_invoices",
+                "table_name": "Financial_Transactions"
+            }
+        },
+        {
+            "column_name": "INVOICE_NUMBER",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_invoices",
+                "table_name": "Invoices"
+            }
+        },
+        {
+            "column_name": "ORDER_ITEM_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_invoices",
+                "table_name": "Order_Items"
+            }
+        },
+        {
+            "column_name": "PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_invoices",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "INVOICE_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "customers_and_invoices",
+                "table_name": "Invoices"
+            }
+        },
+        {
+            "column_name": "DATE_ORDER_PLACED",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "customers_and_invoices",
+                "table_name": "Orders"
+            }
+        },
+        {
+            "column_name": "TRANSACTION_AMOUNT",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_invoices",
+                "table_name": "Financial_Transactions"
+            }
+        },
+        {
+            "column_name": "ORDER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_invoices",
+                "table_name": "Orders"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Claim_Header_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_and_eClaims",
+                "table_name": "Claim_Headers"
+            }
+        },
+        {
+            "column_name": "Claim_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_and_eClaims",
+                "table_name": "Claims_Documents"
+            }
+        },
+        {
+            "column_name": "Claim_Processing_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_and_eClaims",
+                "table_name": "Claims_Processing"
+            }
+        },
+        {
+            "column_name": "Claim_Stage_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_and_eClaims",
+                "table_name": "Claims_Processing_Stages"
+            }
+        },
+        {
+            "column_name": "Customer_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_and_eClaims",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "Policy_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_and_eClaims",
+                "table_name": "Policies"
+            }
+        },
+        {
+            "column_name": "Staff_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "insurance_and_eClaims",
+                "table_name": "Staff"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "CRS_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_1",
+                "table_name": "COURSE"
+            }
+        },
+        {
+            "column_name": "DEPT_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_1",
+                "table_name": "DEPARTMENT"
+            }
+        },
+        {
+            "column_name": "STU_NUM",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_1",
+                "table_name": "STUDENT"
+            }
+        },
+        {
+            "column_name": "CLASS_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_1",
+                "table_name": "CLASS"
+            }
+        },
+        {
+            "column_name": "EMP_NUM",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_1",
+                "table_name": "EMPLOYEE"
+            }
+        },
+        {
+            "column_name": "PROF_NUM",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_1",
+                "table_name": "STUDENT"
+            }
+        },
+        {
+            "column_name": "ENROLL_GRADE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_1",
+                "table_name": "ENROLL"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "COUNTRY_ID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "countries"
+            }
+        },
+        {
+            "column_name": "COUNTRY_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "countries"
+            }
+        },
+        {
+            "column_name": "REGION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "countries"
+            }
+        },
+        {
+            "column_name": "DEPARTMENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "departments"
+            }
+        },
+        {
+            "column_name": "DEPARTMENT_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "departments"
+            }
+        },
+        {
+            "column_name": "MANAGER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "departments"
+            }
+        },
+        {
+            "column_name": "LOCATION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "departments"
+            }
+        },
+        {
+            "column_name": "EMPLOYEE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "employees"
+            }
+        },
+        {
+            "column_name": "FIRST_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "employees"
+            }
+        },
+        {
+            "column_name": "LAST_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "employees"
+            }
+        },
+        {
+            "column_name": "EMAIL",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "employees"
+            }
+        },
+        {
+            "column_name": "PHONE_NUMBER",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "employees"
+            }
+        },
+        {
+            "column_name": "HIRE_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "employees"
+            }
+        },
+        {
+            "column_name": "SALARY",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "employees"
+            }
+        },
+        {
+            "column_name": "MANAGER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "employees"
+            }
+        },
+        {
+            "column_name": "DEPARTMENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "employees"
+            }
+        },
+        {
+            "column_name": "START_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "job_history"
+            }
+        },
+        {
+            "column_name": "END_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "job_history"
+            }
+        },
+        {
+            "column_name": "JOB_ID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "job_history"
+            }
+        },
+        {
+            "column_name": "DEPARTMENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "job_history"
+            }
+        },
+        {
+            "column_name": "JOB_ID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "jobs"
+            }
+        },
+        {
+            "column_name": "JOB_TITLE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "jobs"
+            }
+        },
+        {
+            "column_name": "MIN_SALARY",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "jobs"
+            }
+        },
+        {
+            "column_name": "MAX_SALARY",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "jobs"
+            }
+        },
+        {
+            "column_name": "LOCATION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "locations"
+            }
+        },
+        {
+            "column_name": "STREET_ADDRESS",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "locations"
+            }
+        },
+        {
+            "column_name": "POSTAL_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "locations"
+            }
+        },
+        {
+            "column_name": "CITY",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "locations"
+            }
+        },
+        {
+            "column_name": "STATE_PROVINCE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "locations"
+            }
+        },
+        {
+            "column_name": "COUNTRY_ID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "hr_1",
+                "table_name": "locations"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "country_id",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "soccer_1",
+                "table_name": "League"
+            }
+        },
+        {
+            "column_name": "player_api_id",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "soccer_1",
+                "table_name": "Player"
+            }
+        },
+        {
+            "column_name": "player_fifa_api_id",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "soccer_1",
+                "table_name": "Player_Attributes"
+            }
+        },
+        {
+            "column_name": "team_api_id",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "soccer_1",
+                "table_name": "Team"
+            }
+        },
+        {
+            "column_name": "team_fifa_api_id",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "soccer_1",
+                "table_name": "Team_Attributes"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "ACTOR_ID",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "actor"
+            }
+        },
+        {
+            "column_name": "FIRST_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "actor"
+            }
+        },
+        {
+            "column_name": "LAST_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "actor"
+            }
+        },
+        {
+            "column_name": "CATEGORY_ID",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "category"
+            }
+        },
+        {
+            "column_name": "NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "category"
+            }
+        },
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "customer"
+            }
+        },
+        {
+            "column_name": "STORE_ID",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "customer"
+            }
+        },
+        {
+            "column_name": "EMAIL",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "customer"
+            }
+        },
+        {
+            "column_name": "FILM_ID",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "film"
+            }
+        },
+        {
+            "column_name": "TITLE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "film"
+            }
+        },
+        {
+            "column_name": "RELEASE_YEAR",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "film"
+            }
+        },
+        {
+            "column_name": "RENTAL_RATE",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "film"
+            }
+        },
+        {
+            "column_name": "INVENTORY_ID",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "inventory"
+            }
+        },
+        {
+            "column_name": "STAFF_ID",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "staff"
+            }
+        },
+        {
+            "column_name": "PAYMENT_ID",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "payment"
+            }
+        },
+        {
+            "column_name": "AMOUNT",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "payment"
+            }
+        },
+        {
+            "column_name": "PAYMENT_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "payment"
+            }
+        },
+        {
+            "column_name": "RENTAL_ID",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "rental"
+            }
+        },
+        {
+            "column_name": "RENTAL_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "rental"
+            }
+        },
+        {
+            "column_name": "RETURN_DATE",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "rental"
+            }
+        },
+        {
+            "column_name": "STORE_ID",
+            "column_types": "integer",
+            "meta_data": {
+                "db_id": "sakila_1",
+                "table_name": "store"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "PROPERTY_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "real_estate_properties",
+                "table_name": "Properties"
+            }
+        },
+        {
+            "column_name": "PROPERTY_TYPE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_properties",
+                "table_name": "Properties"
+            }
+        },
+        {
+            "column_name": "FEATURE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "real_estate_properties",
+                "table_name": "Other_Available_Features"
+            }
+        },
+        {
+            "column_name": "FEATURE_TYPE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_properties",
+                "table_name": "Other_Available_Features"
+            }
+        },
+        {
+            "column_name": "FEATURE_NAME",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_properties",
+                "table_name": "Other_Available_Features"
+            }
+        },
+        {
+            "column_name": "PROPERTY_FEATURE_DESCRIPTION",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_properties",
+                "table_name": "Other_Property_Features"
+            }
+        },
+        {
+            "column_name": "FEATURE_TYPE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_properties",
+                "table_name": "Ref_Feature_Types"
+            }
+        },
+        {
+            "column_name": "PROPERTY_TYPE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "real_estate_properties",
+                "table_name": "Ref_Property_Types"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "CID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Course"
+            }
+        },
+        {
+            "column_name": "CName",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Course"
+            }
+        },
+        {
+            "column_name": "Credits",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Course"
+            }
+        },
+        {
+            "column_name": "DNO",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Course"
+            }
+        },
+        {
+            "column_name": "DNO",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Department"
+            }
+        },
+        {
+            "column_name": "Division",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Department"
+            }
+        },
+        {
+            "column_name": "DName",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Department"
+            }
+        },
+        {
+            "column_name": "StuID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Enrolled_in"
+            }
+        },
+        {
+            "column_name": "CID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Enrolled_in"
+            }
+        },
+        {
+            "column_name": "Grade",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Enrolled_in"
+            }
+        },
+        {
+            "column_name": "FacID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Faculty"
+            }
+        },
+        {
+            "column_name": "Lname",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Faculty"
+            }
+        },
+        {
+            "column_name": "Fname",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Faculty"
+            }
+        },
+        {
+            "column_name": "Rank",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Faculty"
+            }
+        },
+        {
+            "column_name": "Appt_Type",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Member_of"
+            }
+        },
+        {
+            "column_name": "lettergrade",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Gradeconversion"
+            }
+        },
+        {
+            "column_name": "gradepoint",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Gradeconversion"
+            }
+        },
+        {
+            "column_name": "StuID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Minor_in"
+            }
+        },
+        {
+            "column_name": "DNO",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Minor_in"
+            }
+        },
+        {
+            "column_name": "StuID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Student"
+            }
+        },
+        {
+            "column_name": "LName",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Student"
+            }
+        },
+        {
+            "column_name": "Fname",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Student"
+            }
+        },
+        {
+            "column_name": "Major",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Student"
+            }
+        },
+        {
+            "column_name": "Advisor",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "college_3",
+                "table_name": "Student"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_deliveries",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "ADDRESS_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_deliveries",
+                "table_name": "Addresses"
+            }
+        },
+        {
+            "column_name": "REGULAR_ORDER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_deliveries",
+                "table_name": "Regular_Orders"
+            }
+        },
+        {
+            "column_name": "PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_deliveries",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "ACTUAL_ORDER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_deliveries",
+                "table_name": "Actual_Orders"
+            }
+        },
+        {
+            "column_name": "LOCATION_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "customer_deliveries",
+                "table_name": "Delivery_Route_Locations"
+            }
+        },
+        {
+            "column_name": "DRIVER_EMPLOYEE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_deliveries",
+                "table_name": "Order_Deliveries"
+            }
+        },
+        {
+            "column_name": "TRUCK_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_deliveries",
+                "table_name": "Trucks"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "authorId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "author"
+            }
+        },
+        {
+            "column_name": "authorName",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "author"
+            }
+        },
+        {
+            "column_name": "citingPaperId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "cite"
+            }
+        },
+        {
+            "column_name": "citedPaperId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "cite"
+            }
+        },
+        {
+            "column_name": "datasetId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "dataset"
+            }
+        },
+        {
+            "column_name": "datasetName",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "dataset"
+            }
+        },
+        {
+            "column_name": "journalId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "journal"
+            }
+        },
+        {
+            "column_name": "journalName",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "journal"
+            }
+        },
+        {
+            "column_name": "keyphraseId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "keyphrase"
+            }
+        },
+        {
+            "column_name": "keyphraseName",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "keyphrase"
+            }
+        },
+        {
+            "column_name": "paperId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "paper"
+            }
+        },
+        {
+            "column_name": "title",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "paper"
+            }
+        },
+        {
+            "column_name": "venueId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "paper"
+            }
+        },
+        {
+            "column_name": "year",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "paper"
+            }
+        },
+        {
+            "column_name": "numCiting",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "paper"
+            }
+        },
+        {
+            "column_name": "numCitedBy",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "paper"
+            }
+        },
+        {
+            "column_name": "datasetId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "paperDataset"
+            }
+        },
+        {
+            "column_name": "paperId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "paperDataset"
+            }
+        },
+        {
+            "column_name": "keyphraseId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "paperKeyphrase"
+            }
+        },
+        {
+            "column_name": "paperId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "paperKeyphrase"
+            }
+        },
+        {
+            "column_name": "venueId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "venue"
+            }
+        },
+        {
+            "column_name": "venueName",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "venue"
+            }
+        },
+        {
+            "column_name": "paperId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "writes"
+            }
+        },
+        {
+            "column_name": "authorId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "scholar",
+                "table_name": "writes"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Exam_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Exams"
+            }
+        },
+        {
+            "column_name": "Subject_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Exams"
+            }
+        },
+        {
+            "column_name": "Exam_Date",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Exams"
+            }
+        },
+        {
+            "column_name": "Question_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Questions"
+            }
+        },
+        {
+            "column_name": "Type_of_Question_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Questions"
+            }
+        },
+        {
+            "column_name": "Question_Text",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Questions"
+            }
+        },
+        {
+            "column_name": "Exam_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Questions_in_Exams"
+            }
+        },
+        {
+            "column_name": "Question_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Questions_in_Exams"
+            }
+        },
+        {
+            "column_name": "Student_Answer_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Student_Answers"
+            }
+        },
+        {
+            "column_name": "Exam_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Student_Answers"
+            }
+        },
+        {
+            "column_name": "Question_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Student_Answers"
+            }
+        },
+        {
+            "column_name": "Student_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Student_Answers"
+            }
+        },
+        {
+            "column_name": "Date_of_Answer",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Student_Answers"
+            }
+        },
+        {
+            "column_name": "Student_Answer_ID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Student_Assessments"
+            }
+        },
+        {
+            "column_name": "Valid_Answer_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Student_Assessments"
+            }
+        },
+        {
+            "column_name": "Student_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Students"
+            }
+        },
+        {
+            "column_name": "First_Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Students"
+            }
+        },
+        {
+            "column_name": "Last_Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Students"
+            }
+        },
+        {
+            "column_name": "Valid_Answer_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Valid_Answers"
+            }
+        },
+        {
+            "column_name": "Question_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Valid_Answers"
+            }
+        },
+        {
+            "column_name": "Valid_Answer_Text",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "online_exams",
+                "table_name": "Valid_Answers"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "loser_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "wta_1",
+                "table_name": "matches"
+            }
+        },
+        {
+            "column_name": "winner_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "wta_1",
+                "table_name": "matches"
+            }
+        },
+        {
+            "column_name": "player_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "wta_1",
+                "table_name": "players"
+            }
+        },
+        {
+            "column_name": "ranking_date",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "wta_1",
+                "table_name": "rankings"
+            }
+        },
+        {
+            "column_name": "ranking",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "wta_1",
+                "table_name": "rankings"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "business_id",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "yelp",
+                "table_name": "business"
+            }
+        },
+        {
+            "column_name": "category_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "yelp",
+                "table_name": "category"
+            }
+        },
+        {
+            "column_name": "count",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "yelp",
+                "table_name": "checkin"
+            }
+        },
+        {
+            "column_name": "neighbourhood_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "yelp",
+                "table_name": "neighbourhood"
+            }
+        },
+        {
+            "column_name": "rating",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "yelp",
+                "table_name": "review"
+            }
+        },
+        {
+            "column_name": "likes",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "yelp",
+                "table_name": "tip"
+            }
+        },
+        {
+            "column_name": "user_id",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "yelp",
+                "table_name": "user"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "albums"
+            }
+        },
+        {
+            "column_name": "title",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "albums"
+            }
+        },
+        {
+            "column_name": "artist_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "albums"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "artists"
+            }
+        },
+        {
+            "column_name": "name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "artists"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "customers"
+            }
+        },
+        {
+            "column_name": "first_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "customers"
+            }
+        },
+        {
+            "column_name": "last_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "customers"
+            }
+        },
+        {
+            "column_name": "customer_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "invoices"
+            }
+        },
+        {
+            "column_name": "invoice_date",
+            "column_types": "time",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "invoices"
+            }
+        },
+        {
+            "column_name": "total",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "invoices"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "genres"
+            }
+        },
+        {
+            "column_name": "name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "genres"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "tracks"
+            }
+        },
+        {
+            "column_name": "name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "tracks"
+            }
+        },
+        {
+            "column_name": "album_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "tracks"
+            }
+        },
+        {
+            "column_name": "media_type_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "tracks"
+            }
+        },
+        {
+            "column_name": "genre_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "tracks"
+            }
+        },
+        {
+            "column_name": "unit_price",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "store_1",
+                "table_name": "tracks"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "DOCUMENT_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "document_management",
+                "table_name": "Documents"
+            }
+        },
+        {
+            "column_name": "FUNCTIONAL_AREA_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "document_management",
+                "table_name": "Functional_Areas"
+            }
+        },
+        {
+            "column_name": "SECTION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "document_management",
+                "table_name": "Document_Sections"
+            }
+        },
+        {
+            "column_name": "IMAGE_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "document_management",
+                "table_name": "Images"
+            }
+        },
+        {
+            "column_name": "ROLE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "document_management",
+                "table_name": "Roles"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "circuitId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "formula_1",
+                "table_name": "circuits"
+            }
+        },
+        {
+            "column_name": "constructorId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "formula_1",
+                "table_name": "constructors"
+            }
+        },
+        {
+            "column_name": "driverId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "formula_1",
+                "table_name": "drivers"
+            }
+        },
+        {
+            "column_name": "raceId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "formula_1",
+                "table_name": "races"
+            }
+        },
+        {
+            "column_name": "resultId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "formula_1",
+                "table_name": "results"
+            }
+        },
+        {
+            "column_name": "qualifyId",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "formula_1",
+                "table_name": "qualifying"
+            }
+        },
+        {
+            "column_name": "lap",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "formula_1",
+                "table_name": "lapTimes"
+            }
+        },
+        {
+            "column_name": "stop",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "formula_1",
+                "table_name": "pitStops"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "bike_1",
+                "table_name": "station"
+            }
+        },
+        {
+            "column_name": "name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "bike_1",
+                "table_name": "station"
+            }
+        },
+        {
+            "column_name": "dock_count",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "bike_1",
+                "table_name": "station"
+            }
+        },
+        {
+            "column_name": "start_station_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "bike_1",
+                "table_name": "trip"
+            }
+        },
+        {
+            "column_name": "end_station_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "bike_1",
+                "table_name": "trip"
+            }
+        },
+        {
+            "column_name": "duration",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "bike_1",
+                "table_name": "trip"
+            }
+        },
+        {
+            "column_name": "start_date",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "bike_1",
+                "table_name": "trip"
+            }
+        },
+        {
+            "column_name": "end_date",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "bike_1",
+                "table_name": "trip"
+            }
+        },
+        {
+            "column_name": "subscription_type",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "bike_1",
+                "table_name": "trip"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Workshop_Group_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Drama_Workshop_Groups",
+                "table_name": "Drama_Workshop_Groups"
+            }
+        },
+        {
+            "column_name": "Customer_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Drama_Workshop_Groups",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "Order_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Drama_Workshop_Groups",
+                "table_name": "Customer_Orders"
+            }
+        },
+        {
+            "column_name": "Invoice_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Drama_Workshop_Groups",
+                "table_name": "Invoices"
+            }
+        },
+        {
+            "column_name": "Product_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Drama_Workshop_Groups",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "Service_Type_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Drama_Workshop_Groups",
+                "table_name": "Ref_Service_Types"
+            }
+        },
+        {
+            "column_name": "Store_ID",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Drama_Workshop_Groups",
+                "table_name": "Stores"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "state_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "state"
+            }
+        },
+        {
+            "column_name": "country_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "state"
+            }
+        },
+        {
+            "column_name": "population",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "state"
+            }
+        },
+        {
+            "column_name": "area",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "state"
+            }
+        },
+        {
+            "column_name": "capital",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "state"
+            }
+        },
+        {
+            "column_name": "lake_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "lake"
+            }
+        },
+        {
+            "column_name": "area",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "lake"
+            }
+        },
+        {
+            "column_name": "river_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "river"
+            }
+        },
+        {
+            "column_name": "length",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "river"
+            }
+        },
+        {
+            "column_name": "mountain_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "mountain"
+            }
+        },
+        {
+            "column_name": "mountain_altitude",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "mountain"
+            }
+        },
+        {
+            "column_name": "city_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "city"
+            }
+        },
+        {
+            "column_name": "population",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "city"
+            }
+        },
+        {
+            "column_name": "highest_point",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "highlow"
+            }
+        },
+        {
+            "column_name": "lowest_point",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "geo",
+                "table_name": "highlow"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "STUDENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "behavior_monitoring",
+                "table_name": "Students"
+            }
+        },
+        {
+            "column_name": "ADDRESS_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "behavior_monitoring",
+                "table_name": "Addresses"
+            }
+        },
+        {
+            "column_name": "TEACHER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "behavior_monitoring",
+                "table_name": "Teachers"
+            }
+        },
+        {
+            "column_name": "INCIDENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "behavior_monitoring",
+                "table_name": "Behavior_Incident"
+            }
+        },
+        {
+            "column_name": "DETENTION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "behavior_monitoring",
+                "table_name": "Detention"
+            }
+        },
+        {
+            "column_name": "STUDENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "behavior_monitoring",
+                "table_name": "Student_Addresses"
+            }
+        },
+        {
+            "column_name": "ADDRESS_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "behavior_monitoring",
+                "table_name": "Student_Addresses"
+            }
+        },
+        {
+            "column_name": "STUDENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "behavior_monitoring",
+                "table_name": "Students_in_Detention"
+            }
+        },
+        {
+            "column_name": "DETENTION_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "behavior_monitoring",
+                "table_name": "Students_in_Detention"
+            }
+        },
+        {
+            "column_name": "INCIDENT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "behavior_monitoring",
+                "table_name": "Students_in_Detention"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Document_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Doc_Tracking_DB",
+                "table_name": "All_Documents"
+            }
+        },
+        {
+            "column_name": "Document_Type_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Tracking_DB",
+                "table_name": "All_Documents"
+            }
+        },
+        {
+            "column_name": "Document_Name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Tracking_DB",
+                "table_name": "All_Documents"
+            }
+        },
+        {
+            "column_name": "Document_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Doc_Tracking_DB",
+                "table_name": "Document_Locations"
+            }
+        },
+        {
+            "column_name": "Location_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Tracking_DB",
+                "table_name": "Document_Locations"
+            }
+        },
+        {
+            "column_name": "Employee_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Doc_Tracking_DB",
+                "table_name": "Employees"
+            }
+        },
+        {
+            "column_name": "Role_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Tracking_DB",
+                "table_name": "Employees"
+            }
+        },
+        {
+            "column_name": "Document_Type_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Tracking_DB",
+                "table_name": "Ref_Document_Types"
+            }
+        },
+        {
+            "column_name": "Location_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Tracking_DB",
+                "table_name": "Ref_Locations"
+            }
+        },
+        {
+            "column_name": "Role_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Doc_Tracking_DB",
+                "table_name": "Roles"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Tourist_Attraction_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Theme_park",
+                "table_name": "Tourist_Attractions"
+            }
+        },
+        {
+            "column_name": "Feature_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Theme_park",
+                "table_name": "Features"
+            }
+        },
+        {
+            "column_name": "Location_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Theme_park",
+                "table_name": "Locations"
+            }
+        },
+        {
+            "column_name": "Attraction_Type_Code",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "cre_Theme_park",
+                "table_name": "Ref_Attraction_Types"
+            }
+        },
+        {
+            "column_name": "Visit_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Theme_park",
+                "table_name": "Visits"
+            }
+        },
+        {
+            "column_name": "Tourist_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Theme_park",
+                "table_name": "Visitors"
+            }
+        },
+        {
+            "column_name": "Market_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Theme_park",
+                "table_name": "Street_Markets"
+            }
+        },
+        {
+            "column_name": "Shop_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Theme_park",
+                "table_name": "Shops"
+            }
+        },
+        {
+            "column_name": "Theme_Park_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "cre_Theme_park",
+                "table_name": "Theme_Parks"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_addresses",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "ORDER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_addresses",
+                "table_name": "Customer_Orders"
+            }
+        },
+        {
+            "column_name": "ADDRESS_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_addresses",
+                "table_name": "Addresses"
+            }
+        },
+        {
+            "column_name": "PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_addresses",
+                "table_name": "Products"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Player_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "school_player",
+                "table_name": "player"
+            }
+        },
+        {
+            "column_name": "School_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "school_player",
+                "table_name": "school"
+            }
+        },
+        {
+            "column_name": "School_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "school_player",
+                "table_name": "school_details"
+            }
+        },
+        {
+            "column_name": "School_Id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "school_player",
+                "table_name": "school_performance"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tvshow",
+                "table_name": "Cartoon"
+            }
+        },
+        {
+            "column_name": "Title",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "tvshow",
+                "table_name": "Cartoon"
+            }
+        },
+        {
+            "column_name": "Original_air_date",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "tvshow",
+                "table_name": "Cartoon"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "tvshow",
+                "table_name": "TV_Channel"
+            }
+        },
+        {
+            "column_name": "series_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "tvshow",
+                "table_name": "TV_Channel"
+            }
+        },
+        {
+            "column_name": "id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "tvshow",
+                "table_name": "TV_series"
+            }
+        },
+        {
+            "column_name": "Episode",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "tvshow",
+                "table_name": "TV_series"
+            }
+        },
+        {
+            "column_name": "Air_Date",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "tvshow",
+                "table_name": "TV_series"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "COMPLAINT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_complaints",
+                "table_name": "Complaints"
+            }
+        },
+        {
+            "column_name": "PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_complaints",
+                "table_name": "Complaints"
+            }
+        },
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_complaints",
+                "table_name": "Complaints"
+            }
+        },
+        {
+            "column_name": "STAFF_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_complaints",
+                "table_name": "Complaints"
+            }
+        },
+        {
+            "column_name": "CUSTOMER_TYPE_CODE",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "customer_complaints",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_complaints",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "PARENT_PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_complaints",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "STAFF_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customer_complaints",
+                "table_name": "Staff"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "CUSTOMER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_products_contacts",
+                "table_name": "Customers"
+            }
+        },
+        {
+            "column_name": "ORDER_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_products_contacts",
+                "table_name": "Customer_Orders"
+            }
+        },
+        {
+            "column_name": "PRODUCT_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_products_contacts",
+                "table_name": "Products"
+            }
+        },
+        {
+            "column_name": "ADDRESS_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_products_contacts",
+                "table_name": "Addresses"
+            }
+        },
+        {
+            "column_name": "ORDER_ITEM_ID",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "customers_and_products_contacts",
+                "table_name": "Order_Items"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "Ssn",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "company_1",
+                "table_name": "employee"
+            }
+        },
+        {
+            "column_name": "Super_ssn",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "company_1",
+                "table_name": "employee"
+            }
+        },
+        {
+            "column_name": "Dno",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "company_1",
+                "table_name": "employee"
+            }
+        },
+        {
+            "column_name": "Dnumber",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "company_1",
+                "table_name": "department"
+            }
+        },
+        {
+            "column_name": "Mgr_ssn",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "company_1",
+                "table_name": "department"
+            }
+        },
+        {
+            "column_name": "Essn",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "company_1",
+                "table_name": "works_on"
+            }
+        },
+        {
+            "column_name": "Pno",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "company_1",
+                "table_name": "works_on"
+            }
+        },
+        {
+            "column_name": "Dnumber",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "company_1",
+                "table_name": "dept_locations"
+            }
+        },
+        {
+            "column_name": "Dlocation",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "company_1",
+                "table_name": "dept_locations"
+            }
+        }
+    ],
+    [
+        {
+            "column_name": "catalog_entry_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "product_catalog",
+                "table_name": "Catalog_Contents"
+            }
+        },
+        {
+            "column_name": "catalog_level_number",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "product_catalog",
+                "table_name": "Catalog_Contents"
+            }
+        },
+        {
+            "column_name": "catalog_entry_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "product_catalog",
+                "table_name": "Catalog_Contents"
+            }
+        },
+        {
+            "column_name": "price_in_dollars",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "product_catalog",
+                "table_name": "Catalog_Contents"
+            }
+        },
+        {
+            "column_name": "attribute_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "product_catalog",
+                "table_name": "Attribute_Definitions"
+            }
+        },
+        {
+            "column_name": "attribute_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "product_catalog",
+                "table_name": "Attribute_Definitions"
+            }
+        },
+        {
+            "column_name": "catalog_id",
+            "column_types": "number",
+            "meta_data": {
+                "db_id": "product_catalog",
+                "table_name": "Catalogs"
+            }
+        },
+        {
+            "column_name": "catalog_name",
+            "column_types": "text",
+            "meta_data": {
+                "db_id": "product_catalog",
+                "table_name": "Catalogs"
+            }
+        }
+    ]
+]
