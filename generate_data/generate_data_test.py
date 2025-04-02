@@ -9,8 +9,6 @@ from prompt import *
 import concurrent.futures
 
 """ 生成 AmbiDB 数据集的全部问题和对应的 SQL 语句 """
-os.environ['HTTP_PROXY'] = 'socks5://127.0.0.1:10808'
-os.environ['HTTPS_PROXY'] = 'socks5://127.0.0.1:10808'
 
 llm = QwenModel(model_name="qwen-plus", temperature=0.3, stream=True)
 
