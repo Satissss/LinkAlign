@@ -24,6 +24,7 @@ def parse_arguments():
     parser.add_argument("--dataset", type=str, required=False, default=r".\spider2_dev\spider2_dev_preprocessed.json")
     parser.add_argument("--db_info_path", type=str, required=False, default=r'.\spider2_dev\db_info.json')
     parser.add_argument("--links_save_path", type=str, required=False, default=r".\spider2_dev\schema_links")
+    parser.add_argument("--external_info_path", type=str, required=False, default=r".\spider2_dev\external_knowledge")
 
     return parser.parse_args()
 
@@ -192,7 +193,7 @@ def get_files(directory, suffix: str = ".sql"):
 
 
 def load_external_knowledge(instance_id):
-    path = r".\spider2_dev\external_knowledge"
+    path = external_info_path
     if not os.path.exists(path):
         return None
     all_ids = get_files(path, ".txt")
@@ -217,6 +218,7 @@ def get_schema(
         post_retrieval_size: int = 90,  # 最好与 reserve_size 设置一致
         post_retrieval_turn: int = 2,
         reserve_rate: float = 0.6,
+        open_schema_linking: bool = False
 ):
     """ 检索问题需要的数据库模式 """
     file_name = instance_id + "_agent"
@@ -225,14 +227,14 @@ def get_schema(
 
     db_size = load_db_size(db_id)
 
-    # print(db_size)
     if db_size <= reserve_size:
+        # 对于极小规模数据库，直接保留全部模式
         df = parse_schemas_from_file(db_id)
         df.to_excel(rf"{save_path}\{file_name}.xlsx", index=False)
         return df
 
+    # 加载 schema 向量库索引
     vector_dir = rf"{schema_path}\{db_id}"
-
     vector_index = RagPipeLines.build_index_from_source(
         data_source=vector_dir,
         persist_dir=vector_dir + r"\vector_store",
@@ -242,6 +244,7 @@ def get_schema(
     retriever = RagPipeLines.get_retriever(index=vector_index)
 
     if db_size <= min_retrival_size:
+        # 对于较小规模数据库，可直接跳过检索
         df = parse_schemas_from_file(db_id)
     else:
         # 进行检索
@@ -293,17 +296,20 @@ def get_schema(
     df = pd.concat([df, sub_df], axis=0)
     df.to_excel(rf"{save_path}\{file_name}.xlsx", index=False)
 
-    # 模式链接，提取生成 SQL 语句所需的表和列
-    context = parse_schema_from_df(df)
-    schema_links = SchemaLinkingTool.generate_by_multi_agent(llm=llm, query=row["question"],
-                                                             context=context,
-                                                             turn_n=1, linker_num=3
-                                                             )
-    schema_links = schema_links.replace("`", "").replace("\n", "").replace("python", "")
-    with open(rf".\spider2_dev\schema_links\{file_name}.txt", "w", encoding="utf-8") as f:
-        f.write(schema_links)
+    if open_schema_linking:
+        # 模式链接，提取生成 SQL 语句所需的表和列
+        context = parse_schema_from_df(df)
+        schema_links = SchemaLinkingTool.generate_by_multi_agent(llm=llm, query=row["question"],
+                                                                 context=context,
+                                                                 turn_n=1, linker_num=3
+                                                                 )
+        schema_links = schema_links.replace("`", "").replace("\n", "").replace("python", "")
+        with open(rf".\spider2_dev\schema_links\{file_name}.txt", "w", encoding="utf-8") as f:
+            f.write(schema_links)
 
-    return df, schema_links
+        return df, schema_links
+
+    return df
 
 
 def process_row(index, row, pbar):
@@ -324,13 +330,14 @@ if __name__ == "__main__":
     # 加载命令行参数
     save_path = args.save_path
     schema_path = args.schema_path
-    DATASET = args.dataset
+    dataset_path = args.dataset
     db_info_path = args.db_info_path
+    external_info_path = args.external_info_path
     # 加载保存数据库规模的 json 文档
     with open(db_info_path, 'r', encoding='utf-8') as file:
         db_info = json.load(file)
 
-    val_df = load_data(DATASET)
+    val_df = load_data(dataset_path)
 
     with tqdm(total=val_df.shape[0]) as pbar:
         inputs = []
