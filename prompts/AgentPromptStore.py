@@ -82,7 +82,7 @@ Analysis: {analysis}
 Rewritten Question:
 """
 
-# Prompt For Step Two
+# Prompt For Step Two (Single-DB)
 FAIR_EVAL_DEBATE_TEMPLATE = """### [System]
 We request your feedback on irrelevant columns in the provided database schema, which are seen as noise to generate SQL for user question. Ensure that after removing these irrelevant schemas, the SQL queries can still be generated accurately.
 Other referees are working on similar tasks. You must discuss with them.
@@ -174,6 +174,47 @@ You are now a Debate Terminator, one of the referees in this task. Your job is t
 [Example Output]
 ['users.age', 'orders.discount_code', 'products.supplier_id']
 ### Please make effort to avoid the risk of excluding correct database schemas.
+"""
+
+# Prompt For Step Two (Multi-DB)
+MULTI_FAIR_EVAL_DEBATE_TEMPLATE = """
+[Context]
+{source_text}
+[System]
+We would like to request your feedback on the "exactly matched database" which contains both sufficient and necessary schema(tables and columns) to perfectly answer the question above.
+There are a few other referees assigned the same task, it’s your responsibility to discuss with them and think critically before you make your final judgment.
+Do not blindly follow the opinions of other referees, as their insights may be flawed.
+Here is your discussion history:
+{chat_history}
+{role_description}
+# Please consider (1) whether the candidate database contains the required schema, (2) whether the schema contained in the candidate database can accurately generate SQL statements. 
+# Please be aware that there is and only one database that exactly matches the user's question. Therefore, you need to ensure the accuracy of the selected database.Otherwise, it will lead to errors in the SQL statements.
+Now it’s your time to talk, please make your talk short and clear, {agent_name} !
+"""
+
+MULTI_DATABASE_SCIENTIST_ROLE_DESCRIPTION = """
+You are database scientist,one of the referees in this debate.You are a seasoned professional with expertise in database theory, a thorough understanding of SQL specifications, and well-honed skills in critical thinking and problem-solving.
+Your job is to to make sure the selected database by data analyst is well-considered and can be used to construct the exact SQL statements corresponding to the natural language question.
+Please carefully observe the details and point out any shortcomings or errors in data analyst's answers
+"""
+
+MULTI_DATA_ANALYST_ROLE_DESCRIPTION = """
+You are data analyst, one of the referees in this debate.You are familiar with writing SQL statements and highly proficient in finding the most accurate database through rich intuition and experience.
+You job is to determine the only one database which has the most sufficient data tables and data fields to construct the exact SQL statements corresponding to the question. 
+"""
+
+MULTI_SOURCE_TEXT_TEMPLATE = """
+The following is a user question in natural language form that requires discussion to determine the most appropriate database, capable of generating the corresponding SQL statement.
+# question:{query}.
+{context_str}
+"""
+
+MULTI_SUMMARY_TEMPLATE = """
+You are now a debate terminator, one of the referees in this task.
+You job is to determine the most suitable database that represents the final outcome of the discussion.
+#
+Noted that strictly output one unique database name without any irrelevant content.
+#
 """
 
 # Prompt For Step Three
