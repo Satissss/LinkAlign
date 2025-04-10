@@ -1,8 +1,6 @@
-"""
- 在此处定义所有需要使用的 multi-agent collaboration 策略提示词模版
-"""
+""" 在此处定义所有的 multi-agent collaboration 策略提示词模版 """
 
-""" Prompt For Step One """
+# Prompt For Step One
 JUDGE_TEMPLATE = """[Instruction]
 You are a database schema auditor specialized in SQL generation adequacy analysis. Strictly follow these steps to evaluate schema completeness:
 
@@ -84,9 +82,7 @@ Analysis: {analysis}
 Rewritten Question:
 """
 
-# -----------------------------------------------------------------------------------------------
-
-""" Prompt For Step Two """
+# Prompt For Step Two
 FAIR_EVAL_DEBATE_TEMPLATE = """### [System]
 We request your feedback on irrelevant columns in the provided database schema, which are seen as noise to generate SQL for user question. Ensure that after removing these irrelevant schemas, the SQL queries can still be generated accurately.
 Other referees are working on similar tasks. You must discuss with them.
@@ -180,9 +176,7 @@ You are now a Debate Terminator, one of the referees in this task. Your job is t
 ### Please make effort to avoid the risk of excluding correct database schemas.
 """
 
-# -----------------------------------------------------------------------------------------------
-
-""" Prompt For Step Three """
+# Prompt For Step Three
 GENERATE_FAIR_EVAL_DEBATE_TEMPLATE = """[Question]
 {source_text}
 [System]
