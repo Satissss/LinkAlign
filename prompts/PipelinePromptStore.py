@@ -1,41 +1,99 @@
 """  在此处定义所有的 Single-Prompt Pipeline 策略使用的提示词 """
 
 # Prompt For Step One
-REASON_ENHANCE_TEMPLATE = """
-You are a database expert who is highly proficient in writing SQL statements. 
-For a question presented in natural language, let's think step by step to analyze the belonging class of key entities in the problem,
-Then you need to deduce the most relevant database schemas with key field information.
-#
-Strictly output the results with four sections and exclude any irrelevant content:
-1、Understanding the Requirement;2、Key Entities Identification;3、Entity Classification;4. Database Schema Deduction.
-### 
-Here are a few reference examples that may help you complete this task. 
-#
-e.g. question: Find the semester when both Master students and Bachelor students got enrolled in.
-analysis:
-### Analysis:
-1、Understanding the Requirement:
-   The question aims to identify a specific semester during which students from both Master’s and Bachelor’s degree programs were enrolled. 
-   This involves finding commonality in enrollment periods for these two distinct groups of students.
-2、Key Entities Identification:
-  The question explicitly mentions four entities: "semester" and "Master students" and "Bachelor students" and "student enrollment" 
-3、Entity Classification:
-   Both "Master" and "Bachelor" students belong to a broader category known as the "degree class." 
-   This class represents various types of academic programs offered by an educational institution.
-4. Database Schema Deduction:
-   The most likely database schemas that store information about degree programs and student enrollments.
-     "degree_programs": contains details about different degree programs, including identifiers and names/descriptions of the programs (e.g., "Master" or "Bachelor").
-     "student_enrolment": This schema captures the enrollment data, indicating which students are enrolled in which semesters and in what degree programs.
-### 
+QUERY_REWRITING_TEMPLATE = """You are a database semantic architect. Given a user question and partial schema context, systematically perform schema adequacy analysis and question re-engineering through these phases:
+# Phase 1: Structural Necessity Analysis
+A) Entity-Relationship Identification:
+- Identify explicit/nascent entities (Subject: <entity>, Measurement: <metric>, Context: <domain>)
+- Map to required schema components: 
+a. Core tables (1 per entity) 
+b. Attribute columns (2-5 per entity) 
+c. Temporal anchors (DATE-type columns)
+d. Relationship connectors (FK chains)
 
-#
-The reason work for this round officially begin now.
-question: {query}
-analysis: 
+B) Gap Detection Matrix:
+1. Verify existence per entity:
+   - Mandatory: Primary table with PK;
+   - Operational: Columns for filtering/aggregation;
+   - Temporal: Valid time dimension for range queries;
+   - Relational: Connected via FK path to relevant tables.
+2. Flag missing components as [UNRESOLVED: component_type].
+
+# Phase 2: Contextual Re-alignment**
+A) Semantic Binding Process:
+1. Maintain original lexical anchors (technical nouns/verbs)
+2. Inject missing elements using schema-adaptive phrasing:
+   - Tables: "using <added>table_X</added> containing [entity] records"
+   - Columns: "tracking <added>column_Y</added> for [function]"
+   - Temporal: "between [start] and [end] in <added>time_column</added>"
+   - Relationships: "connected through <added>FK_relationship</added>"
+
+B) Query Intent Preservation Check:
+- Ensure rewritten question requires ALL identified [UNRESOLVED] components
+- Verify no new assumptions beyond original intent
+
+# Phase 3: Precision Output Formatting**
+Structured as:
+"In a system tracking [core entities], how to [action verb] <added>using [missing_tables]</added>? Analyze [base_metrics] with <added>[missing_columns]</added> for [operations], filtered through [time_constraints] and correlated via <added>[missing_relationships]</added>."
+
+# Constraints:
+1. Mandatory <added> tags ONLY for schema additions
+2. Preserve original question's technical vocabulary
+3. Output EXCLUSIVELY the reformulated question
+4. Strict JSON avoidance
+
+[Inputs]
+Question: {question}
+Schemas: {context}
+
+Rewritten Question:
 """
 
-# Prompt For Step Two
-LOCATE_TEMPLATE = """
+# Prompt For Step Two (Single-DB)
+LOCATE_TEMPLATE = """### [Role]
+You are a highly experienced database scientist and data analyst with deep expertise in database theory, SQL specifications, and rigorous data validation techniques. Your task is to filter out tables and columns from the given database schema that are completely irrelevant to constructing correct SQL statements derived from a natural language query.
+
+### [Process Guidance]:
+1. Verification of Relevance:
+(a) Irrelevance Assurance: Confirm that each field (table column) removed is 100% irrelevant to the natural language question and does not affect the final SQL statement.
+(b) Prevent False Negatives: Adopt a conservative approach that always prioritizes retaining any elements that might have an implicit connection to the query context.
+
+2.Rigorous Analysis Process:
+(a) Context Binding:
+# Identify 2-5 primary entities (with any potential aliases or variants).
+# Detect hidden constraints such as temporal windows, spatial boundaries, and aggregation needs from the query.
+(b) Adaptive Filtering:
+# Conservative Exclusion:
+- Remove a field only if there is complete lexical isolation (no partial or semantic match with the query tokens, considering case-insensitive comparisons and domain-specific ontologies).
+- Exclude a table or column if it lacks any join path (within 3 hops) to the identified primary entities or relevant operational context.
+- Discard fields where there is a definitive type contradiction or proven cardinality mismatch.
+# Relevance Tagging:
+- Instead of immediate removal, flag fields as potential low-usage candidates, legacy context elements, or system artifacts if they require further review.
+
+3. Mandatory Retention Rules:
+(a) Retain all primary key (PK) and foreign key (FK) fields, including their composite counterparts and any column that participates in multiple join conditions.
+(b) Ensure that all numeric, temporal, or geometric fields—especially those related to the query’s implicit domains—are maintained.
+
+4. Final Validation Steps:
+(a) Verify that every core entity table still maintains its essential join paths.
+(b) Confirm that no critical numeric or temporal fields have been inadvertently removed.
+(b) Achieve an efficient yet accurate reduction of schema noise (targeting around 40-70% reduction) without compromising SQL-critical elements or introducing errors.
+
+### [Output Requirements]
+After performing the schema pruning and validation steps, compile your final decision into a single Python list. This list must contain all the irrelevant fields agreed upon, where each entry is formatted as [<table>.<column>] (e.g., ['users.age', 'orders.discount_code', 'products.supplier_id']). Do not include any additional text or commentary in the output.
+
+### [Process Begin]
+[Question]
+{query}.
+
+[Provided Database Schema]
+{context}.
+
+### Only output a single Python list.
+"""
+
+# Prompt For Step Two (Multi-DB)
+MULTI_LOCATE_TEMPLATE = """
 You are a database expert, who has professional knowledge of databases and highly proficient in writing SQL statements.
 On the basis of comprehensive understanding the natural language problem, 
 let's think step by step to determine the only one database which has the most sufficient data tables and data fields to construct the exact SQL statements.
