@@ -17,11 +17,13 @@ filter_llm = QwenModel(model_name="qwen-turbo", temperature=0.42)
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Run the script with external parameters.")
-    parser.add_argument("--save_path", type=str, required=False, default=r".\spider2_dev\instance_schemas")
-    parser.add_argument("--schema_path", type=str, required=False, default=r".\spider2_dev\schemas")
+    parser.add_argument("--save_path", type=str, required=False, default=r".\spider2_dev\instance_schemas",
+                        help="Path for storing the schema obtained through retrieval and filtering.")
+    parser.add_argument("--schema_path", type=str, required=False, default=r".\spider2_dev\schemas",
+                        help="path for storing database schema information.")
     parser.add_argument("--dataset", type=str, required=False, default=r".\spider2_dev\spider2_dev_preprocessed.json")
     parser.add_argument("--db_info_path", type=str, required=False, default=r'.\spider2_dev\db_info.json')
-    parser.add_argument("--links_save_path", type=str, required=False, default=r".\schema_links\spider2_other")
+    parser.add_argument("--links_save_path", type=str, required=False, default=r".\spider2_dev\schema_links")
 
     return parser.parse_args()
 
@@ -190,7 +192,9 @@ def get_files(directory, suffix: str = ".sql"):
 
 
 def load_external_knowledge(instance_id):
-    path = r".\preprocessed_data\spider2_dev\external_knowledge"
+    path = r".\spider2_dev\external_knowledge"
+    if not os.path.exists(path):
+        return None
     all_ids = get_files(path, ".txt")
 
     if instance_id in all_ids:
