@@ -183,11 +183,20 @@ You are now a Debate Terminator, one of the referees in this task. Your job is t
 # -----------------------------------------------------------------------------------------------
 
 """ Prompt For Step Three """
-
-# GENERATE_DATA_ANALYST_ROLE_DESCRIPTION = """
-# You are now data analyst, one of the referees in this task.You are highly proficient in writing SQL statements and independantly thinking.
-# Your job is to identify and extract all the necessary database schemas required for generating correct SQL statement that corresponds to the given problem.
-# """
+GENERATE_FAIR_EVAL_DEBATE_TEMPLATE = """[Question]
+{source_text}
+[System]
+We would like to request your feedback on the exactly correct database schemas(tables and columns),
+which is strictly necessary for writing the right SQL statement in response to the user question displayed above.
+There are a few other referees assigned the same task, it’s your responsibility to discuss with them and think critically and independantly before you make your final judgment.
+Here is your discussion history:
+{chat_history}
+{role_description}
+###
+Please be mindful that failing to include any essential schemas, such as query columns or join table fields, can lead to erroneous SQL generation. 
+Consequently, it is imperative to thoroughly review and double-check your extracted schemas to guarantee their completeness and ensure nothing is overlooked.
+Now it’s your time to talk, please make your talk short and clear, {agent_name} !
+"""
 
 GENERATE_DATA_ANALYST_ROLE_DESCRIPTION = """[Role] 
 You are a meticulous Data Analyst with deep expertise in SQL and database schema analysis. Your task is to systematically identify and retrieve all schema components required to construct accurate, syntactically correct SQL statements based on user questions.
@@ -231,27 +240,6 @@ c) Constraint Verification
 Present as structured JSON with:
 # "identified_components": {tables, columns, joins}
 """
-#
-# 1. Analyze the User Query. Identify the tables, columns, relationships, and constraints (e.g., primary/foreign keys) explicitly or implicitly referenced in the question.
-#
-# 2. Schema Extraction Process.
-# # (1) List ALL relevant tables involved in the query, even if indirectly referenced (e.g., join tables).
-# # (2) Extract ALL columns needed for: SELECT (output fields), WHERE/JOIN/HAVING (filtering/logic), GROUP BY/ORDER BY (aggregation/sorting).
-# # (3) Explicitly state joins between tables, including: Join type (INNER, LEFT, etc.), Join conditions (e.g., table1.id = table2.foreign_id).
-# # (4) Include constraints (e.g., NOT NULL, unique indexes) that impact the query logic.
-#
-# 3. Validation Check. Before output schemas, confirm that:
-# No required tables/columns are omitted.
-# All joins and constraints are explicitly defined.
-# Ambiguities in column/table names are resolved (e.g., users.name vs products.name).
-
-
-# GENERATE_DATABASE_SCIENTIST_ROLE_DESCRIPTION = """
-# You are database scientist,one of the referees in this task.You are a professional engaged in SQL statement writing specifications, possessing a strong background in critical thinking,problem-solving abilities,and a robust capacity for independent thinking.
-# Your primary responsibility is to guarantee that the extracted database schemas is adequately comprehensive, leaving no room for omitting any essential tables or columns.
-# Please help data analysts identify any errors or deficiencies in the extracted database schemas from data analysts (e.g. redundant or noisy fields, missing key query entities, missing critical filtering conditions, without crucial database join fields, etc.).
-# Noted that disregard the shortcomings in the database table creation statements.
-# """
 
 GENERATE_DATABASE_SCIENTIST_ROLE_DESCRIPTION = """[Role]
 You are a Database Scientist tasked with rigorously auditing the Data Analyst’s schema extraction process. Your expertise lies in identifying logical flaws, data completeness issues, and adherence to SQL best practices.
@@ -272,8 +260,6 @@ For every Data Analyst submission, systematically check:
 # Clarity: Are ambiguous column/table names disambiguated (e.g., user.id vs order.user_id)?
 """
 
-# line 2:Your job is to to ensure that the selected database schemas are well-considered and can be used to construct the exact SQL statements corresponding to the Natural Language Question.
-
 GENERATE_SOURCE_TEXT_TEMPLATE = """
 The following is a user query in natural language, along with the full database schema (including data tables and fields). A discussion is needed to determine the most appropriate schema elements that will enable the creation of the correct SQL statement.
 ## 
@@ -290,5 +276,3 @@ Each field must be formatted as [<table>.<column>], and the output must be a sin
 ['users.age', 'orders.discount_code', 'products.supplier_id']
 ### Please make effort to avoid the risk of excluding correct database schemas.
 """
-
-# Do not omit any database schemas proposed during the discussion.
