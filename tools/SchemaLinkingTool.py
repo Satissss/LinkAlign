@@ -113,7 +113,7 @@ class SchemaLinkingTool:
         return nodes_lis
 
     @classmethod
-    def reason_enhance(
+    def query_rewriting(
             cls,
             llm=None,
             query: str = None
@@ -124,7 +124,7 @@ class SchemaLinkingTool:
 
         llm = llm if llm else ZhipuModel()
 
-        prompt = REASON_ENHANCE_TEMPLATE.format(query=query)
+        prompt = QUERY_REWRITING_TEMPLATE.format(query=query)
 
         reason_query = llm.complete(prompt=prompt).text  # 增强后的问题查询
 
@@ -145,9 +145,9 @@ class SchemaLinkingTool:
             is_all: bool = True,
             enhanced_question=None
     ):
-        """ 
-            Step one: retrieve potential database schemas. 
-            Mode: Pipeline. 
+        """
+            Step one: retrieve potential database schemas.
+            Mode: Pipeline.
         """
         if not question:
             raise Exception("输入参数中问题不能为空！")
@@ -163,7 +163,7 @@ class SchemaLinkingTool:
         else:
             if not remove_duplicate:
                 """ 如果不进行去重，同时使用 Question 和增强后的问题进行检索 """
-                analysis = cls.reason_enhance(llm=llm, query=question)  # 调用大模型，通过推理对原始问题进行增强
+                analysis = cls.query_rewriting(llm=llm, query=question)  # 调用大模型，通过推理对原始问题进行增强
 
                 enhanced_question = question + analysis
 
@@ -227,7 +227,7 @@ class SchemaLinkingTool:
             logger=None
     ):
         """
-            Step one: retrieve potential database schemas. 
+            Step one: retrieve potential database schemas.
             Mode: Agent
         """
         if logger is None:
@@ -323,11 +323,46 @@ class SchemaLinkingTool:
             return output
 
     @classmethod
+    def load_rf_template(
+            cls,
+            mode: str = "agent",  # agent or pipeline
+            is_single_mode: bool = True  # Single-DB / Multi-DB
+    ):
+        mode = mode if mode in ["agent", "pipeline"] else "agent"
+        if mode == "agent":
+            if is_single_mode:
+                return {
+                    "SOURCE_TEXT_TEMPLATE": SOURCE_TEXT_TEMPLATE,
+                    "FAIR_EVAL_DEBATE_TEMPLATE": FAIR_EVAL_DEBATE_TEMPLATE,
+                    "DATA_ANALYST_ROLE_DESCRIPTION": DATA_ANALYST_ROLE_DESCRIPTION,
+                    "DATABASE_SCIENTIST_ROLE_DESCRIPTION": DATABASE_SCIENTIST_ROLE_DESCRIPTION,
+                    "SUMMARY_TEMPLATE": SUMMARY_TEMPLATE
+                }
+            else:
+                return {
+                    "SOURCE_TEXT_TEMPLATE": MULTI_SOURCE_TEXT_TEMPLATE,
+                    "FAIR_EVAL_DEBATE_TEMPLATE": MULTI_FAIR_EVAL_DEBATE_TEMPLATE,
+                    "DATA_ANALYST_ROLE_DESCRIPTION": MULTI_DATA_ANALYST_ROLE_DESCRIPTION,
+                    "DATABASE_SCIENTIST_ROLE_DESCRIPTION": MULTI_DATABASE_SCIENTIST_ROLE_DESCRIPTION,
+                    "SUMMARY_TEMPLATE": MULTI_SUMMARY_TEMPLATE
+                }
+        else:
+            if is_single_mode:
+                return {
+                    "LOCATE_TEMPLATE": LOCATE_TEMPLATE
+                }
+            else:
+                return {
+                    "LOCATE_TEMPLATE": MULTI_LOCATE_TEMPLATE
+                }
+
+    @classmethod
     def locate(
             cls,
             llm=None,
             query: str = None,
-            context: str = None  # 检索的所有数据库schema
+            context: str = None,  # 检索的所有数据库schema
+            is_single_mode: bool = True
     ) -> str:
         """
             Step two: isolate irrelevant schema information.
@@ -338,7 +373,8 @@ class SchemaLinkingTool:
 
         llm = llm if llm else ZhipuModel()
 
-        prompt = LOCATE_TEMPLATE.format(query=query, context=context)
+        prompt_loader = cls.load_rf_template(mode='pipeline', is_single_mode=is_single_mode)
+        prompt = prompt_loader['LOCATE_TEMPLATE'].format(query=query, context=context)
 
         # print(prompt)
         database = llm.complete(prompt=prompt).text  # 增强后的问题查询
@@ -353,8 +389,8 @@ class SchemaLinkingTool:
             query: str = None,
             nodes: List[NodeWithScore] = None,
             context_lis: List[str] = None,
-            context_str: str = None
-
+            context_str: str = None,
+            is_single_mode: bool = True
     ) -> str:
         """
             Step two: isolate irrelevant schema information.
@@ -364,6 +400,8 @@ class SchemaLinkingTool:
             raise Exception("输入的查询不能为空！")
 
         llm = llm if llm else ZhipuModel()
+
+        prompt_loader = cls.load_rf_template(mode='agent', is_single_mode=is_single_mode)
 
         if context_str or context_lis:
             pass
@@ -375,44 +413,41 @@ class SchemaLinkingTool:
         if not context_str:
             context_str = ""
             for ind, context in enumerate(context_lis):
-                context_str += f"""
-    [The Start of Candidate Database"{ind + 1}"'s Schema]
-    {context}
-    [The End of Candidate Database"{ind + 1}"'s Schema]
+                context_str += f"""[The Start of Candidate Database"{ind + 1}"'s Schema]
+{context}
+[The End of Candidate Database"{ind + 1}"'s Schema]
                     """
-        source_text = SOURCE_TEXT_TEMPLATE.format(query=query, context_str=context_str)
+        source_text = prompt_loader['SOURCE_TEXT_TEMPLATE'].format(query=query, context_str=context_str)
 
         chat_history = []
 
         # one-by-one
         for i in range(turn_n):
-            data_analyst_prompt = FAIR_EVAL_DEBATE_TEMPLATE.format(
+            data_analyst_prompt = prompt_loader['FAIR_EVAL_DEBATE_TEMPLATE'].format(
                 source_text=source_text,
                 chat_history="\n".join(chat_history),
-                role_description=DATA_ANALYST_ROLE_DESCRIPTION,
+                role_description=prompt_loader['DATA_ANALYST_ROLE_DESCRIPTION'],
                 agent_name="data analyst"
             )
             data_analyst_debate = llm.complete(data_analyst_prompt).text
-            chat_history.append(f"""
-    [Debate Turn: {i + 1}, Agent Name:"data analyst", Debate Content:{data_analyst_debate}]
-                """)
+            chat_history.append(
+                f'[Debate Turn: {i + 1}, Agent Name:"data analyst", Debate Content:{data_analyst_debate}]')
 
-            data_scientist_prompt = FAIR_EVAL_DEBATE_TEMPLATE.format(
+            data_scientist_prompt = prompt_loader['FAIR_EVAL_DEBATE_TEMPLATE'].format(
                 source_text=source_text,
                 chat_history="\n".join(chat_history),
-                role_description=DATABASE_SCIENTIST_ROLE_DESCRIPTION,
+                role_description=prompt_loader['DATABASE_SCIENTIST_ROLE_DESCRIPTION'],
                 agent_name="database scientist"
             )
             data_scientist_debate = llm.complete(data_scientist_prompt).text
-            chat_history.append(f"""
-    [Debate Turn: {i + 1}, Agent Name:"database scientist", Debate Content:{data_scientist_debate}]
-                """)
+            chat_history.append(
+                f'[Debate Turn: {i + 1}, Agent Name:"database scientist", Debate Content:{data_scientist_debate}]')
 
         # print(chat_history)
-        summary_prompt = FAIR_EVAL_DEBATE_TEMPLATE.format(
+        summary_prompt = prompt_loader['FAIR_EVAL_DEBATE_TEMPLATE'].format(
             source_text=source_text,
             chat_history="\n".join(chat_history),
-            role_description=SUMMARY_TEMPLATE,
+            role_description=prompt_loader['SUMMARY_TEMPLATE'],
             agent_name="debate terminator"
         )
 
