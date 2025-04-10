@@ -66,3 +66,16 @@ def back_to_original_ids(self):
     self._node_ids = ids_
 ```
 
+## Citation
+If you find our work useful, please cite it as:
+```
+@article{wang2025linkalign,
+  title={LinkAlign: Scalable Schema Linking for Real-World Large-Scale Multi-Database Text-to-SQL},
+  author={Yihan Wang and Peng Liu and Xiao Yang},
+  year={2025},
+  eprint={2503.18596},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2503.18596},
+}
+```
