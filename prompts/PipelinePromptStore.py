@@ -1,202 +1,6 @@
-"""
-    这里保存 Single-Prompt Pipeline 策略使用的提示词
-"""
+"""  在此处定义所有的 Single-Prompt Pipeline 策略使用的提示词 """
 
-SCHEMA_LINKING_TEMPLATE = """
-You are a database expert who is highly proficient in writing SQL statements. 
-For a natural language question , you job is to identify and extract the correct data tables and data fields from database creation statements,
-which is necessary for constructing the accurate SQL statement corresponding to the question. 
-#
-Strictly ensure the output is a Python list object:
-[<data table name>.<data field name>...]
-e.g. "movies" and "ratings" are two datatable in one database,then one possible output as following:
-[movies.movie_release_year, movies.movie_title, ratings.rating_score]
-#
-{few_examples}
-# The extraction work for this round officially begin now.
-Database Table Creation Statements:
-{{context_str}}
-#
-Question: {question}
-Answer:
-"""
-
-SCHEMA_LINKING_MANUAL_TEMPLATE = """
-You are a database expert who is highly proficient in writing SQL statements. 
-For a natural language question , you job is to identify and extract the correct data tables and data fields from database creation statements,
-which is strictly necessary for the accurate SQL statement corresponding to the question. 
-#
-Strictly output the results in a python list format:
-[<data table name>.<data field name>...]
-e.g. "movies" and "ratings" are two datatable in one database,then one possible output as following:
-[movies.movie_release_year, movies.movie_title, ratings.rating_score]
-#
-{few_examples}
-# The extraction work for this round officially begin now.
-Database Table Creation Statements:
-{context_str}
-#
-Question: {question}
-Answer:
-"""
-
-SCHEMA_LINKING_FEW_EXAMPLES = """
-### 
-Here are a few reference examples that may help you complete this task. 
-### 
-Database Table Creation Statements:
-#
-Following is the whole table creation statement for the database popular_movies
-CREATE TABLE movies (
-        movie_id INTEGER NOT NULL, 
-        movie_title TEXT, 
-        movie_release_year INTEGER, 
-        movie_url TEXT, 
-        movie_title_language TEXT, 
-        movie_popularity INTEGER, 
-        movie_image_url TEXT, 
-        director_id TEXT, 
-        director_name TEXT, 
-        director_url TEXT, 
-        PRIMARY KEY (movie_id)
-)
-CREATE TABLE ratings (
-        movie_id INTEGER, 
-        rating_id INTEGER, 
-        rating_url TEXT, 
-        rating_score INTEGER, 
-        rating_timestamp_utc TEXT, 
-        critic TEXT, 
-        critic_likes INTEGER, 
-        critic_comments INTEGER, 
-        user_id INTEGER, 
-        user_trialist INTEGER, 
-        user_subscriber INTEGER, 
-        user_eligible_for_trial INTEGER, 
-        user_has_payment_method INTEGER, 
-        FOREIGN KEY(movie_id) REFERENCES movies (movie_id), 
-        FOREIGN KEY(user_id) REFERENCES lists_users (user_id), 
-        FOREIGN KEY(rating_id) REFERENCES ratings (rating_id), 
-        FOREIGN KEY(user_id) REFERENCES ratings_users (user_id)
-)
-Question: Which year has the least number of movies that was released and what is the title of the movie in that year that has the highest number of rating score of 1?
-Hint: least number of movies refers to MIN(movie_release_year); highest rating score refers to MAX(SUM(movie_id) where rating_score = '1')
-Analysis: Let’s think step by step. In the question , we are asked:
-"Which year" so we need column = [movies.movie_release_year]
-"number of movies" so we need column = [movies.movie_id]
-"title of the movie" so we need column = [movies.movie_title]
-"rating score" so we need column = [ratings.rating_score]
-Hint also refers to the columns = [movies.movie_release_year, movies.movie_id, ratings.rating_score]
-Based on the columns and tables, we need these Foreign_keys = [movies.movie_id = ratings.movie_id].
-Based on the tables, columns, and Foreign_keys, The set of possible cell values are = [1]. So the Schema_links are:
-Answer: [movies.movie_release_year, movies.movie_title, ratings.rating_score, movies.movie_id,ratings.movie_id]
-
-
-#
-Following is the whole table creation statement for the database user_list
-CREATE TABLE lists (
-        user_id INTEGER, 
-        list_id INTEGER NOT NULL, 
-        list_title TEXT, 
-        list_movie_number INTEGER, 
-        list_update_timestamp_utc TEXT, 
-        list_creation_timestamp_utc TEXT, 
-        list_followers INTEGER, 
-        list_url TEXT, 
-        list_comments INTEGER, 
-        list_description TEXT, 
-        list_cover_image_url TEXT, 
-        list_first_image_url TEXT, 
-        list_second_image_url TEXT, 
-        list_third_image_url TEXT, 
-        PRIMARY KEY (list_id), 
-        FOREIGN KEY(user_id) REFERENCES lists_users (user_id)
-)
-CREATE TABLE lists_users (
-        user_id INTEGER NOT NULL, 
-        list_id INTEGER NOT NULL, 
-        list_update_date_utc TEXT, 
-        list_creation_date_utc TEXT, 
-        user_trialist INTEGER, 
-        user_subscriber INTEGER, 
-        user_avatar_image_url TEXT, 
-        user_cover_image_url TEXT, 
-        user_eligible_for_trial TEXT, 
-        user_has_payment_method TEXT, 
-        PRIMARY KEY (user_id, list_id), 
-        FOREIGN KEY(list_id) REFERENCES lists (list_id), 
-        FOREIGN KEY(user_id) REFERENCES lists (user_id)
-)
-Question: Among the lists created by user 4208563, which one has the highest number of followers? Indicate how many followers it has and whether the user was a subscriber or not when he created the list.
-Hint: User 4208563 refers to user_id;highest number of followers refers to MAX(list_followers); user_subscriber = 1 means that the user was a subscriber when he created the list; user_subscriber = 0 means the user was not a subscriber when he created the list (to replace)
-Analysis: Let’s think step by step. In the question , we are asked:
-"user" so we need column = [lists_users.user_id]
-"number of followers" so we need column = [lists.list_followers]
-"user was a subscriber or not" so we need column = [lists_users.user_subscriber]
-Hint also refers to the columns = [lists_users.user_id,lists.list_followers,lists_users.user_subscriber]
-Based on the columns and tables, we need these Foreign_keys = [lists.user_id = lists_user.user_id,lists.list_id = lists_user.list_id].
-Based on the tables, columns, and Foreign_keys, The set of possible cell values are = [1, 4208563]. So the Schema_links are:
-Answer: [lists.list_followers,lists_users.user_subscriber,lists.user_id,lists_user.user_id,lists.list_id,lists_user.list_id]
-
-###
-"""
-
-DEFAULT_PROMPT_TEMPLATE = SCHEMA_LINKING_TEMPLATE
-
-DETECT_LINKING_ERROR_TEMPLATE = """
-请判断下面 SQL 语句中出现的所有数据表和字段与 Schema_links 出现的数据表和字段是否完全一致，若是，则输出yes,若否则输出no,
-并输出错误类型（若Schema links 中出现的数据表与SQL中的数据表有差异，则类型为 wrong table，若正确包含所有数据表，但字段错误则类型为 wrong column）。
-注意：忽略任何大小写引起的错误！
-输出格式如下：
-{{"res":"yes"}} 或者 {{"res":"no","type":<wrong table 或者 wrong column>}}
-# 
-SQL 语句：
-{sql}
-#
-Schema links:
-{schema_links}
-#
-输出(严格遵守格式要求，不要包含任何其他无关内容)：
-"""
-
-EXTRACT_SCHEMA_FROM_SQL_TEMPLATE = """
-You job is to identify and extract all the database schema(data table and data field) from the following SQL. 
-#
-Strictly ensure the output is a Python list object:
-[<data table name>.<data field name>]
-e.g. "movies" and "ratings" are two datatable in one database,then one possible output as following:
-[movies.movie_release_year, movies.movie_title, ratings.rating_score]
-### 
-Here are a few reference examples that may help you complete this task. 
-sql: "SELECT T2.name ,  count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id  where T1.type="music" GROUP BY T1.stadium_id"
-output:[concert.stadium_id, stadium.stadium_id, stadium.name, concert.type]
-### 
-#
-Start this round of tasks. 
-sql:"{sql}";
-output(Strictly output a python list object without any irrelevant content ):
-"""
-
-EXTRACT_SCHEMA_FROM_CONTENT_TEMPLATE = """
-Check the following content to see if it meets the Required Format; 
-If not,then you job is to make corrections and output the result in the correct format. 
-# Required Format
-Strictly ensure the output is a Python list object:
-[<data table name>.<data field name>]
-e.g. "movies" and "ratings" are two datatable in one database,then one possible output as following:
-[movies.movie_release_year, movies.movie_title, ratings.rating_score]
-#
-Here are a few reference examples that may help you complete this task. 
-e.g.
-input : ([movies.movie_release_year, movies.movie_title, ratings.rating_score, movies.movie_id=ratings.movie_id, 1],'pupular_movies'),
-you should extract the database schemas from the list in the first place ,and output as following:
-[movies.movie_release_year, movies.movie_title, ratings.rating_score, movies.movie_id,ratings.movie_id]
-#
-Start this round of tasks. 
-input:{schema_links}
-output(Strictly a python list without any irrelevant content):
-"""
-
+# Prompt For Step One
 REASON_ENHANCE_TEMPLATE = """
 You are a database expert who is highly proficient in writing SQL statements. 
 For a question presented in natural language, let's think step by step to analyze the belonging class of key entities in the problem,
@@ -230,6 +34,7 @@ question: {query}
 analysis: 
 """
 
+# Prompt For Step Two
 LOCATE_TEMPLATE = """
 You are a database expert, who has professional knowledge of databases and highly proficient in writing SQL statements.
 On the basis of comprehensive understanding the natural language problem, 
@@ -362,3 +167,145 @@ Relevant database Table Creation Statements:
 Question:{query}
 Output Database Name:
 """
+
+# Prompt For Step Three
+SCHEMA_LINKING_MANUAL_TEMPLATE = """
+You are a database expert who is highly proficient in writing SQL statements. 
+For a natural language question , you job is to identify and extract the correct data tables and data fields from database creation statements,
+which is strictly necessary for the accurate SQL statement corresponding to the question. 
+#
+Strictly output the results in a python list format:
+[<data table name>.<data field name>...]
+e.g. "movies" and "ratings" are two datatable in one database,then one possible output as following:
+[movies.movie_release_year, movies.movie_title, ratings.rating_score]
+#
+{few_examples}
+# The extraction work for this round officially begin now.
+Database Table Creation Statements:
+{context_str}
+#
+Question: {question}
+Answer:
+"""
+
+SCHEMA_LINKING_FEW_EXAMPLES = """
+### 
+Here are a few reference examples that may help you complete this task. 
+### 
+Database Table Creation Statements:
+#
+Following is the whole table creation statement for the database popular_movies
+CREATE TABLE movies (
+        movie_id INTEGER NOT NULL, 
+        movie_title TEXT, 
+        movie_release_year INTEGER, 
+        movie_url TEXT, 
+        movie_title_language TEXT, 
+        movie_popularity INTEGER, 
+        movie_image_url TEXT, 
+        director_id TEXT, 
+        director_name TEXT, 
+        director_url TEXT, 
+        PRIMARY KEY (movie_id)
+)
+CREATE TABLE ratings (
+        movie_id INTEGER, 
+        rating_id INTEGER, 
+        rating_url TEXT, 
+        rating_score INTEGER, 
+        rating_timestamp_utc TEXT, 
+        critic TEXT, 
+        critic_likes INTEGER, 
+        critic_comments INTEGER, 
+        user_id INTEGER, 
+        user_trialist INTEGER, 
+        user_subscriber INTEGER, 
+        user_eligible_for_trial INTEGER, 
+        user_has_payment_method INTEGER, 
+        FOREIGN KEY(movie_id) REFERENCES movies (movie_id), 
+        FOREIGN KEY(user_id) REFERENCES lists_users (user_id), 
+        FOREIGN KEY(rating_id) REFERENCES ratings (rating_id), 
+        FOREIGN KEY(user_id) REFERENCES ratings_users (user_id)
+)
+Question: Which year has the least number of movies that was released and what is the title of the movie in that year that has the highest number of rating score of 1?
+Hint: least number of movies refers to MIN(movie_release_year); highest rating score refers to MAX(SUM(movie_id) where rating_score = '1')
+Analysis: Let’s think step by step. In the question , we are asked:
+"Which year" so we need column = [movies.movie_release_year]
+"number of movies" so we need column = [movies.movie_id]
+"title of the movie" so we need column = [movies.movie_title]
+"rating score" so we need column = [ratings.rating_score]
+Hint also refers to the columns = [movies.movie_release_year, movies.movie_id, ratings.rating_score]
+Based on the columns and tables, we need these Foreign_keys = [movies.movie_id = ratings.movie_id].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = [1]. So the Schema_links are:
+Answer: [movies.movie_release_year, movies.movie_title, ratings.rating_score, movies.movie_id,ratings.movie_id]
+
+
+#
+Following is the whole table creation statement for the database user_list
+CREATE TABLE lists (
+        user_id INTEGER, 
+        list_id INTEGER NOT NULL, 
+        list_title TEXT, 
+        list_movie_number INTEGER, 
+        list_update_timestamp_utc TEXT, 
+        list_creation_timestamp_utc TEXT, 
+        list_followers INTEGER, 
+        list_url TEXT, 
+        list_comments INTEGER, 
+        list_description TEXT, 
+        list_cover_image_url TEXT, 
+        list_first_image_url TEXT, 
+        list_second_image_url TEXT, 
+        list_third_image_url TEXT, 
+        PRIMARY KEY (list_id), 
+        FOREIGN KEY(user_id) REFERENCES lists_users (user_id)
+)
+CREATE TABLE lists_users (
+        user_id INTEGER NOT NULL, 
+        list_id INTEGER NOT NULL, 
+        list_update_date_utc TEXT, 
+        list_creation_date_utc TEXT, 
+        user_trialist INTEGER, 
+        user_subscriber INTEGER, 
+        user_avatar_image_url TEXT, 
+        user_cover_image_url TEXT, 
+        user_eligible_for_trial TEXT, 
+        user_has_payment_method TEXT, 
+        PRIMARY KEY (user_id, list_id), 
+        FOREIGN KEY(list_id) REFERENCES lists (list_id), 
+        FOREIGN KEY(user_id) REFERENCES lists (user_id)
+)
+Question: Among the lists created by user 4208563, which one has the highest number of followers? Indicate how many followers it has and whether the user was a subscriber or not when he created the list.
+Hint: User 4208563 refers to user_id;highest number of followers refers to MAX(list_followers); user_subscriber = 1 means that the user was a subscriber when he created the list; user_subscriber = 0 means the user was not a subscriber when he created the list (to replace)
+Analysis: Let’s think step by step. In the question , we are asked:
+"user" so we need column = [lists_users.user_id]
+"number of followers" so we need column = [lists.list_followers]
+"user was a subscriber or not" so we need column = [lists_users.user_subscriber]
+Hint also refers to the columns = [lists_users.user_id,lists.list_followers,lists_users.user_subscriber]
+Based on the columns and tables, we need these Foreign_keys = [lists.user_id = lists_user.user_id,lists.list_id = lists_user.list_id].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = [1, 4208563]. So the Schema_links are:
+Answer: [lists.list_followers,lists_users.user_subscriber,lists.user_id,lists_user.user_id,lists.list_id,lists_user.list_id]
+
+###
+"""
+
+# Prompt For Basic RAG
+SCHEMA_LINKING_TEMPLATE = """
+You are a database expert who is highly proficient in writing SQL statements. 
+For a natural language question , you job is to identify and extract the correct data tables and data fields from database creation statements,
+which is necessary for constructing the accurate SQL statement corresponding to the question. 
+#
+Strictly ensure the output is a Python list object:
+[<data table name>.<data field name>...]
+e.g. "movies" and "ratings" are two datatable in one database,then one possible output as following:
+[movies.movie_release_year, movies.movie_title, ratings.rating_score]
+#
+{few_examples}
+# The extraction work for this round officially begin now.
+Database Table Creation Statements:
+{{context_str}}
+#
+Question: {question}
+Answer:
+"""
+DEFAULT_PROMPT_TEMPLATE = SCHEMA_LINKING_TEMPLATE
