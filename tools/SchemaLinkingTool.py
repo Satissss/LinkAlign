@@ -183,7 +183,7 @@ class SchemaLinkingTool:
 
                 if enhanced_question is None:
                     # 进行问题增强
-                    analysis = cls.reason_enhance(llm=llm, query=question)  # 调用大模型，通过推理对原始问题进行增强
+                    analysis = cls.query_rewriting(llm=llm, query=question)  # 调用大模型，通过推理对原始问题进行增强
                     enhanced_question = question + analysis
 
                 enhance_question_nodes = cls.parallel_retrieve(retriever_lis, [enhanced_question])
