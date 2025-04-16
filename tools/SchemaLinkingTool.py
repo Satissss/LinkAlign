@@ -116,7 +116,8 @@ class SchemaLinkingTool:
     def query_rewriting(
             cls,
             llm=None,
-            query: str = None
+            query: str = None,
+            context: str = None
     ):
         """ 利用大模型在问题的基础上进行推理，并返回推理分析的结果 """
         if not query:
@@ -124,7 +125,7 @@ class SchemaLinkingTool:
 
         llm = llm if llm else ZhipuModel()
 
-        prompt = QUERY_REWRITING_TEMPLATE.format(query=query)
+        prompt = QUERY_REWRITING_TEMPLATE.format(question=query, context=context)
 
         reason_query = llm.complete(prompt=prompt).text  # 增强后的问题查询
 
@@ -156,26 +157,18 @@ class SchemaLinkingTool:
 
         llm = llm if llm else ZhipuModel()
 
-        if not open_reason_enhance:
-            """ 如果不进行推理增强，仅使用 LlamaIndex 提供的检索功能"""
-            nodes = cls.parallel_retrieve(retriever_lis, [question])
-
-        else:
+        nodes = cls.parallel_retrieve(retriever_lis, [question])
+        if open_reason_enhance:
+            context = parse_schema_from_df(parse_schemas_from_nodes(nodes))
             if not remove_duplicate:
                 """ 如果不进行去重，同时使用 Question 和增强后的问题进行检索 """
-                analysis = cls.query_rewriting(llm=llm, query=question)  # 调用大模型，通过推理对原始问题进行增强
-
+                analysis = cls.query_rewriting(llm=llm, query=question, context=context)  # 调用大模型，通过推理对原始问题进行增强
                 enhanced_question = question + analysis
-
-                nodes = cls.parallel_retrieve(retriever_lis, [question, enhanced_question])
-
+                nodes += cls.parallel_retrieve(retriever_lis, [enhanced_question])
             else:
                 # 获取所有的 index 和 id 列表
                 index_lis = [ret.index for ret in retriever_lis]
-
-                question_nodes = cls.parallel_retrieve(retriever_lis, [question])
-
-                sub_ids = get_sub_ids(question_nodes, index_lis, is_all=is_all)
+                sub_ids = get_sub_ids(nodes, index_lis, is_all=is_all)
 
                 # 设置新的id
                 for ret in retriever_lis:
@@ -183,18 +176,15 @@ class SchemaLinkingTool:
 
                 if enhanced_question is None:
                     # 进行问题增强
-                    analysis = cls.query_rewriting(llm=llm, query=question)  # 调用大模型，通过推理对原始问题进行增强
+                    analysis = cls.query_rewriting(llm=llm, query=question, context=context)  # 调用大模型，通过推理对原始问题进行增强
                     enhanced_question = question + analysis
 
-                enhance_question_nodes = cls.parallel_retrieve(retriever_lis, [enhanced_question])
+                nodes += cls.parallel_retrieve(retriever_lis, [enhanced_question])
 
                 for ret in retriever_lis:
                     ret.back_to_original_ids()
-
-                nodes = question_nodes + enhance_question_nodes
-
+        # 基于嵌入向量的距离进行排序
         nodes.sort(key=lambda node: node.score, reverse=True)
-        # print(1)
         if open_locate:
             """ 若进行数据库定位 """
             if open_agent_debate:
@@ -374,7 +364,7 @@ class SchemaLinkingTool:
         llm = llm if llm else ZhipuModel()
 
         prompt_loader = cls.load_rf_template(mode='pipeline', is_single_mode=is_single_mode)
-        prompt = prompt_loader['LOCATE_TEMPLATE'].format(query=query, context=context)
+        prompt = prompt_loader['LOCATE_TEMPLATE'].format(question=query, context=context)
 
         # print(prompt)
         database = llm.complete(prompt=prompt).text  # 增强后的问题查询
