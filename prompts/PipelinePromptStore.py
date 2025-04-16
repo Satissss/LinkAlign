@@ -43,7 +43,7 @@ Structured as:
 4. Strict JSON avoidance
 
 [Inputs]
-Question: {query}
+Question: {question}
 Schemas: {context}
 
 Rewritten Question:
@@ -84,7 +84,7 @@ After performing the schema pruning and validation steps, compile your final dec
 
 ### [Process Begin]
 [Question]
-{query}.
+{question}.
 
 [Provided Database Schema]
 {context}.
@@ -222,7 +222,7 @@ The reason work for this round officially begin now.
 Relevant database Table Creation Statements:
 {context}
 #
-Question:{query}
+Question:{question}
 Output Database Name:
 """
 
