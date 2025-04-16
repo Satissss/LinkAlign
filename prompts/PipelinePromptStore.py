@@ -43,7 +43,7 @@ Structured as:
 4. Strict JSON avoidance
 
 [Inputs]
-Question: {question}
+Question: {query}
 Schemas: {context}
 
 Rewritten Question:
