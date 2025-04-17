@@ -6,6 +6,25 @@ Schema linking is a critical bottleneck in achieving human-level performance in 
 
 ![Overview1](./images/Overview1.png)
 
+## Runtime Efficiency
+
+We tested 75 examples randomly selected from Spider 2.0-Lite Dataset, and evaluate the **time** and **token** consumption of LinkAlign.  Please note that：
+
+* **Excluded**: The time for embedding and indexing is excluded, as it varies by device and can be done before running.
+* **Hyper-parameters**:  `Top-K` = 20 / `LLM` = Qwen-Turbo / `Text Embedding Model` = bge-large-en-v1.5
+
+* **Recommendation:** Steps 1–3 decouple the `turn_n` parameter. For agent mode, it's better adjust `turn_n` in Step 1 for Retrieval Time Scaling , and setting it to 2 in Steps 2 and 3. 
+
+| Approaches   | Step One Time (s) | Step One Token | Step Two Time (s) | Step Two Token | Step Three Time (s) | Step Three Token |
+| ------------ | ----------------- | -------------- | ----------------- | -------------- | ------------------- | ---------------- |
+| **Pipeline** | 9.02              | 763.79         | 2.94              | 1005.87        | 1.67                | 1560.69          |
+| **Agent**    |                   |                |                   |                |                     |                  |
+| Turn_n@1     | 11.95             | 1615.43        | 11.94             | 3654.81        | 10.92               | 3569.25          |
+| Turn_n@2     | 23.60             | 3426.36        | 26.23             | 9270.45        | 22.24               | 8401.93          |
+| Turn_n@3     | 33.44             | 5351.65        | 35.72             | 16535.32       | 30.60               | 15368.36         |
+| Turn_n@4     | 50.90             | 7494.15        | 51.22             | 25148.91       | 43.91               | 23067.56         |
+| Turn_n@5     | 58.42             | 9644.29        | 60.60             | 36378.40       | 52.20               | 33029.11         |
+
 ## Requirements
 
 * sentence-transformers==3.0.1
