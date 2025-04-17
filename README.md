@@ -10,7 +10,7 @@ Schema linking is a critical bottleneck in achieving human-level performance in 
 
 We tested 75 examples randomly selected from Spider 2.0-Lite Dataset, and evaluate the **time** and **token** consumption of LinkAlign.  Please note that：
 
-* **Excluded**: The time for embedding and indexing is excluded, as it varies by device and can be done before running.
+* **Excluded**: We exclude embedding and indexing time, as it varies by device and can be done before running.
 * **Hyper-parameters**:  `Top-K` = 20 / `LLM` = Qwen-Turbo / `Text Embedding Model` = bge-large-en-v1.5
 
 * **Recommendation:** Steps 1–3 decouple the `turn_n` parameter. For agent mode, it's better adjust `turn_n` in Step 1 for Retrieval Time Scaling , and setting it to 2 in Steps 2 and 3. 
