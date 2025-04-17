@@ -10,10 +10,6 @@ from llama_index.core.llms.callbacks import llm_completion_callback
 from openai import OpenAI
 from config import *
 
-
-# os.environ['HTTP_PROXY'] = 'socks5://127.0.0.1:10808'
-# os.environ['HTTPS_PROXY'] = 'socks5://127.0.0.1:10808'
-
 class QwenModel(CustomLLM):
     context_window: int = CONTEXT_WINDOW
     max_tokens: int = MAX_OUTPUT_TOKENS
@@ -102,7 +98,6 @@ class QwenModel(CustomLLM):
 
 
 if __name__ == "__main__":
-    # from baselines.LinkAlign.llms.ApiPool import ZhipuApiPool
     question_text = """桌子上有4个苹果，小红吃了1个，小刚拿走了2个，还剩下几个苹果？"""
     llm = QwenModel(model_name="deepseek-r1", max_token=8192)
     answer = llm.complete(question_text).text
