@@ -1,12 +1,12 @@
 ## LinkAlign: Scalable Schema Linking for Real-World Large-Scale Multi-Database Text-to-SQL
 
-## Introduction
+## 📘 Introduction
 
 Schema linking is a critical bottleneck in achieving human-level performance in Text to-SQL tasks, particularly in real-world large scale multi-database scenarios. Addressing schema linking faces two major challenges: (1) Database Retrieval: selecting the correct database from a large schema pool in multi database settings, while filtering out irrele vant ones. (2) Schema Item Grounding: ac curately identifying the relevant tables and columns from within a large and redundant schema for SQL generation. To address this, we introduce LinkAlign, a novel framework that can effectively adapt existing baselines to real-world environments by systematically ad dressing schema linking. Our framework com prises three key steps: multi-round semantic enhanced retrieval and irrelevant information isolation for Challenge 1, and schema extrac tion enhancement for Challenge 2. We evalu ate our method performance of schema linking on the SPIDER and BIRD benchmarks, and the ability to adapt existing Text-to-SQL mod els to real-world environments on the SPIDER 2.0-lite benchmark. Experiments show that LinkAlign outperforms existing baselines in multi-database settings, demonstrating its effec tiveness and robustness. On the other hand, our method ranks highest among models excluding those using long chain-of-thought reasoning LLMs. This work bridges the gap between current research and real-world scenarios, pro viding a practical solution for robust and scal able schema linking. 
 
 ![Overview1](./images/Overview1.png)
 
-## Runtime Efficiency
+## ⏱️ Runtime Efficiency
 
 We tested 75 examples randomly selected from Spider 2.0-Lite Dataset, and evaluate the **time** and **token** consumption of LinkAlign.  Please note that：
 
@@ -25,7 +25,7 @@ We tested 75 examples randomly selected from Spider 2.0-Lite Dataset, and evalua
 | Turn_n@4     | 50.90             | 7494.15        | 51.22             | 25148.91       | 43.91               | 23067.56         |
 | Turn_n@5     | 58.42             | 9644.29        | 60.60             | 36378.40       | 52.20               | 33029.11         |
 
-## Requirements
+## ⚙️ Requirements
 
 * sentence-transformers==3.0.1
 * transformers==4.42.4
@@ -35,7 +35,7 @@ We tested 75 examples randomly selected from Spider 2.0-Lite Dataset, and evalua
 * llama-index-embeddings-huggingface==0.1.5
 * openai==1.41.0
 
-## Local Deployment
+## 🚀 Local Deployment
 
 We slightly modified the LlamaIndex Framework to better develop our project.
 
@@ -85,7 +85,7 @@ def back_to_original_ids(self):
     self._node_ids = ids_
 ```
 
-## Citation
+## 📚 Citation
 If you find our work useful, please cite it as:
 ```
 @article{wang2025linkalign,
