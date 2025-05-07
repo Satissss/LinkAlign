@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
 import asyncio
-from datetime import datetime
 from llama_index.core.indices.vector_store import VectorIndexRetriever
 
-from config import *
-from llms.zhipu.ZhipuModel import ZhipuModel
-from typing import Union, List
+from llama_index.core.llms.llm import LLM
 from llama_index.core import (
     SummaryIndex,
     VectorStoreIndex,
@@ -14,20 +11,19 @@ from llama_index.core import (
 
 )
 from llama_index.core.indices.utils import default_format_node_batch_fn
-from llama_index.core.schema import NodeWithScore, TextNode, MetadataMode
+from llama_index.core.schema import MetadataMode
 from llama_index.core.base.base_retriever import BaseRetriever
 from prompts.PipelinePromptStore import *
 from pipes.RagPipeline import RagPipeLines
 from prompts.AgentPromptStore import *
 from utils import *
-import logging
 
 
 class SchemaLinkingTool:
     @classmethod
     def link_schema_by_rag(
             cls,
-            llm: ZhipuModel = None,
+            llm: LLM = None,
             index: Union[SummaryIndex, VectorStoreIndex] = None,
             is_add_example: bool = True,
             question: str = None,
@@ -35,12 +31,13 @@ class SchemaLinkingTool:
             **kwargs
     ) -> str:
         if not index:
-            raise Exception("输入参数中索引不能为空！")
+            raise Exception("The index cannot be empty!")
 
         if not question:
-            raise Exception("输入参数中用户查询问题不能为空！")
+            raise Exception("The question cannot be empty!")
 
-        llm = llm if llm else ZhipuModel()
+        if not llm:
+            raise Exception("The llm cannot be empty!")
 
         Settings.llm = llm
 
@@ -51,7 +48,7 @@ class SchemaLinkingTool:
         engine_args = {
             "index": index,
             "query_template": query_template,
-            "similarity_top_k": similarity_top_k,  # todo 文本块的数量可能需要动态确定
+            "similarity_top_k": similarity_top_k,
             **kwargs
         }
 
@@ -82,35 +79,32 @@ class SchemaLinkingTool:
     @classmethod
     def parallel_retrieve(
             cls,
-            retriever_lis: List[BaseRetriever],  # 每个 retriever 的不同之处在于建立索引的源文档不同，而非同个数据库
-            query_lis: List[Union[str, QueryBundle]]  #
+            retriever_list: List[BaseRetriever],
+            query_list: List[Union[str, QueryBundle]]
     ) -> List[NodeWithScore]:
-        async def retrieve_from_single_retriever(retriever: BaseRetriever, query: Union[str, QueryBundle]):
-            nodes = await retriever.aretrieve(query)
-            return nodes
+        """
+        Run async retrieval from multiple retrievers and queries in parallel,
+        and return a sorted flat list of NodeWithScore objects.
+        """
 
-        # 初始化事件循环
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
+        async def retrieve_from_all():
+            tasks = [
+                retriever.aretrieve(query)
+                for retriever in retriever_list
+                for query in query_list
+            ]
+            return await asyncio.gather(*tasks)
 
-        try:
-            # 为每个检索器创建任务，并在事件循环中运行它们
-            tasks = ([loop.create_task(retrieve_from_single_retriever(retriever, query))
-                      for query in query_lis
-                      for retriever in retriever_lis])
-            # 使用 loop.run_until_complete 函数协调所有任务
-            results = loop.run_until_complete(asyncio.gather(*tasks))
-        finally:
-            # 确保事件循环在完成后关闭
-            loop.close()
+        # 执行异步任务并收集结果
+        results = asyncio.run(retrieve_from_all())
 
-        # 扁平化结果列表
-        nodes_lis = [node for sublist in results for node in sublist]
+        # 扁平化所有结果
+        all_nodes = [node for result in results for node in result]
 
-        # 排序结果
-        nodes_lis.sort(key=lambda x: x.score, reverse=True)
+        # 按 score 降序排列
+        all_nodes.sort(key=lambda node: node.score, reverse=True)
 
-        return nodes_lis
+        return all_nodes
 
     @classmethod
     def query_rewriting(
@@ -123,7 +117,8 @@ class SchemaLinkingTool:
         if not query:
             raise Exception("输入的查询不能为空！")
 
-        llm = llm if llm else ZhipuModel()
+        if not llm:
+            raise Exception("The llm cannot be empty!")
 
         prompt = QUERY_REWRITING_TEMPLATE.format(question=query, context=context)
 
@@ -155,9 +150,11 @@ class SchemaLinkingTool:
         elif not retriever_lis:
             raise Exception("输入参数中索引列表不能为空！")
 
-        llm = llm if llm else ZhipuModel()
+        if not llm:
+            raise Exception("The llm cannot be empty!")
 
         nodes = cls.parallel_retrieve(retriever_lis, [question])
+        nodes = [set_node_turn_n(node, 0) for node in nodes]
         if open_reason_enhance:
             context = parse_schema_from_df(parse_schemas_from_nodes(nodes))
             if not remove_duplicate:
@@ -179,14 +176,16 @@ class SchemaLinkingTool:
                     analysis = cls.query_rewriting(llm=llm, query=question, context=context)  # 调用大模型，通过推理对原始问题进行增强
                     enhanced_question = question + analysis
 
-                nodes += cls.parallel_retrieve(retriever_lis, [enhanced_question])
+                temp_nodes = cls.parallel_retrieve(retriever_lis, [enhanced_question])
+                temp_nodes = [set_node_turn_n(node, 1) for node in temp_nodes]
+                nodes += temp_nodes
 
                 for ret in retriever_lis:
                     ret.back_to_original_ids()
         # 基于嵌入向量的距离进行排序
         nodes.sort(key=lambda node: node.score, reverse=True)
+
         if open_locate:
-            """ 若进行数据库定位 """
             if open_agent_debate:
                 predict_database = cls.locate_with_multi_agent(llm=llm, query=question, nodes=nodes, turn_n=turn_n)
             else:
@@ -220,22 +219,19 @@ class SchemaLinkingTool:
             Step one: retrieve potential database schemas.
             Mode: Agent
         """
-        if logger is None:
-            logger = Logger()
-
         if not question:
             raise Exception("输入参数中问题不能为空！")
         elif not retriever_lis:
             raise Exception("输入参数中索引列表不能为空！")
 
-        llm = llm if llm else ZhipuModel()
+        if not llm:
+            raise Exception("The llm cannot be empty!")
 
         enhanced_question = question
         question_nodes = cls.parallel_retrieve(retriever_lis, [question])
         question_nodes = [set_node_turn_n(node, 0) for node in question_nodes]
 
         nodes = question_nodes
-        temp_tuple_lis = []
         # 获取所有的 index 和 id 列表
         index_lis = [ret.index for ret in retriever_lis]
 
@@ -263,7 +259,6 @@ class SchemaLinkingTool:
                 for ret in retriever_lis:
                     ret.back_to_original_ids()
 
-            # schemas = get_all_schemas_from_schema_text(nodes=nodes, output_format='schema', is_all=is_all)
             schemas = parse_schema_from_df(parse_schemas_from_nodes(nodes))
             """ 
             下面使用 multi-agent debate 的方式进行，共有两个角色，judge 和 annotator。
@@ -361,7 +356,8 @@ class SchemaLinkingTool:
         if not query:
             raise Exception("输入的查询不能为空！")
 
-        llm = llm if llm else ZhipuModel()
+        if not llm:
+            raise Exception("The llm cannot be empty!")
 
         prompt_loader = cls.load_rf_template(mode='pipeline', is_single_mode=is_single_mode)
         prompt = prompt_loader['LOCATE_TEMPLATE'].format(question=query, context=context)
@@ -387,9 +383,10 @@ class SchemaLinkingTool:
             Mode: Agent
         """
         if not query:
-            raise Exception("输入的查询不能为空！")
+            raise Exception("The query cannot be empty!")
 
-        llm = llm if llm else ZhipuModel()
+        if not llm:
+            raise Exception("The llm cannot be empty!")
 
         prompt_loader = cls.load_rf_template(mode='agent', is_single_mode=is_single_mode)
 
@@ -450,7 +447,6 @@ class SchemaLinkingTool:
             cls,
             llm=None,
             query: str = None,
-            database: str = None,
             context: str = None,
             logger=None
     ):
@@ -458,13 +454,12 @@ class SchemaLinkingTool:
             Step there: extract schemas for SQL generation.
             Mode: Pipeline.
         """
-        llm = llm if llm else ZhipuModel()
-        if not logger:
-            logger = logging.getLogger(__name__)
+        if not llm:
+            raise Exception("The llm cannot be empty!")
 
-        if context is None:
-            with open(ALL_DATABASE_DATA_SOURCE + rf"\{database.lower()}.sql", "r", encoding="utf-8") as file:
-                context = file.read().strip()
+        if not context:
+            raise Exception("The context cannot be empty!")
+
         context_str = f"[The Start of Database Schemas]\n{context}\n[The End of Database Schemas]"
         query = SCHEMA_LINKING_MANUAL_TEMPLATE.format(few_examples=SCHEMA_LINKING_FEW_EXAMPLES,
                                                       context_str=context_str,
@@ -479,7 +474,6 @@ class SchemaLinkingTool:
             cls,
             llm=None,
             query: str = None,
-            database: str = None,
             context: str = None,
             turn_n: int = 2,
             linker_num: int = 1,  # schema linker 角色的数量
@@ -489,18 +483,13 @@ class SchemaLinkingTool:
             Step there: extract schemas for SQL generation.
             Mode: Agent
         """
-        llm = llm if llm else ZhipuModel()
-        if not logger:
-            logger = logging.getLogger(__name__)
+        if not llm:
+            raise Exception("The llm cannot be empty!")
 
-        if context is None:
-            with open(ALL_DATABASE_DATA_SOURCE + rf"\{database.lower()}.sql", "r", encoding="utf-8") as file:
-                context = file.read().strip()
-        context_str = f"""
-[The Start of Database Schemas]
-{context}
-[The End of Database Schemas]
-"""
+        if not context:
+            raise Exception("The context cannot be empty!")
+
+        context_str = f"[The Start of Database Schemas]\n{context}\n[The End of Database Schemas]"
         source_text = GENERATE_SOURCE_TEXT_TEMPLATE.format(query=query, context_str=context_str)
 
         chat_history = []
@@ -515,9 +504,8 @@ class SchemaLinkingTool:
             )
             for j in range(linker_num):
                 data_analyst_debate = llm.complete(data_analyst_prompt).text
-                chat_history.append(f"""
-[Debate Turn: {i + 1}, Agent Name:"data analyst {j}", Debate Content:{data_analyst_debate}]
-""")
+                chat_history.append(
+                    f"""[Debate Turn: {i + 1}, Agent Name:"data analyst {j}", Debate Content:{data_analyst_debate}]""")
             data_scientist_prompt = GENERATE_FAIR_EVAL_DEBATE_TEMPLATE.format(
                 source_text=source_text,
                 chat_history="\n".join(chat_history),
@@ -525,9 +513,8 @@ class SchemaLinkingTool:
                 agent_name="data scientist"
             )
             data_scientist_debate = llm.complete(data_scientist_prompt).text
-            chat_history.append(f"""
-[Debate Turn: {i + 1}, Agent Name:"data scientist", Debate Content:{data_scientist_debate}]
-""")
+            chat_history.append(
+                f"""[Debate Turn: {i + 1}, Agent Name:"data scientist", Debate Content:{data_scientist_debate}]""")
         logger.info("[multi-agent debate chat history]" + "\n".join(chat_history))
         summary_prompt = GENERATE_FAIR_EVAL_DEBATE_TEMPLATE.format(
             source_text=source_text,
@@ -541,49 +528,29 @@ class SchemaLinkingTool:
 
         return schema
 
-    @classmethod
-    def schema_linking(
-            cls,
-            question: str = None,
-            llm=None,
-            turn_n: int = 2,
-            retriever_lis: List[VectorIndexRetriever] = None,
-            remove_duplicate: bool = True,
-            retrieval_mode: str = "agent",  # 两种检索方式，pipeline 或者 agent
-            open_agent_debate: bool = False,
-            generate_mode: str = "agent"
-    ) -> str:
-        if not question:
-            raise Exception("输入参数中问题不能为空！")
-        elif not retriever_lis:
-            raise Exception("输入参数中索引列表不能为空！")
-
-        if retrieval_mode not in ["pipeline", "agent"]:
-            raise Exception("输入参数中检索模式不正确！")
-
-        llm = llm if llm else ZhipuModel()
-
-        if retrieval_mode == "pipeline":
-            database = SchemaLinkingTool.retrieve_complete(question, retriever_lis, llm, open_locate=True,
-                                                           remove_duplicate=remove_duplicate,
-                                                           open_agent_debate=open_agent_debate)
+    def retrieve_complete_selector(self, mode: str, **kwargs):
+        mode = mode if mode in ["agent", "pipeline"] else "pipeline"
+        if mode == "pipeline":
+            res = self.retrieve_complete(**kwargs)
         else:
-            database = SchemaLinkingTool.retrieve_complete_by_multi_agent_debate(question,
-                                                                                 turn_n, turn_n,
-                                                                                 retriever_lis, llm,
-                                                                                 open_locate=True,
-                                                                                 remove_duplicate=remove_duplicate,
-                                                                                 open_agent_debate=open_agent_debate
-                                                                                 )
-        with open(ALL_DATABASE_DATA_SOURCE + rf"\{database.lower()}.sql", "r", encoding="utf-8") as file:
-            schema = file.read().strip()
+            res = self.retrieve_complete_by_multi_agent_debate(**kwargs)
+        return res
 
-        if generate_mode == "agent":
-            predict_schema = cls.generate_by_multi_agent(llm=llm, query=question, context=schema, turn_n=turn_n)
+    def locate_selector(self, mode: str, **kwargs):
+        mode = mode if mode in ["agent", "pipeline"] else "pipeline"
+        if mode == "pipeline":
+            res = self.locate(**kwargs)
         else:
-            predict_schema = cls.generate_schema(llm=llm, query=question, context=schema)
+            res = self.locate_with_multi_agent(**kwargs)
+        return res
 
-        return predict_schema
+    def generate_selector(self, mode: str, **kwargs):
+        mode = mode if mode in ["agent", "pipeline"] else "pipeline"
+        if mode == "pipeline":
+            res = self.generate_schema(**kwargs)
+        else:
+            res = self.generate_by_multi_agent(**kwargs)
+        return res
 
 
 def filter_nodes_by_database(
@@ -609,40 +576,27 @@ def filter_nodes_by_database(
 
 def get_all_schemas_from_schema_text(
         nodes: List[NodeWithScore],
-        output_format: str = "database",  # database or schema or node
+        output_format: str = "schema",  # `node`, `schema` or `all`
         schemas_format: str = "str",  # 当输出格式为 node 时无效
         is_all: bool = True
 ):
     if output_format == "node":
         return nodes
-
-    databases = []
-
-    for node in nodes:
-        file_path = node.node.metadata["file_path"]
-        db = file_path.split("\\")[-1].split(".")[0].strip()
-        databases.append(db)
-
-    databases = list(set(databases))
-
-    if output_format == "database":
-        return databases
-
     if is_all:
+        # 解析文本块对应文件的全部字符
         schemas = []
-        for path in [node.node.metadata["file_path"] for node in nodes]:
-            with open(path, "r", encoding="utf-8") as file:
-                schema = file.read().strip()
-                schemas.append(schema)
-
+        for path in [Path(node.node.metadata["file_path"]) for node in nodes]:
+            schema = load_dataset(path).strip()
+            schemas.append(schema)
         if schemas_format == "str":
             schemas = "\n".join(schemas)
     else:
+        # 仅保留单个检索文本块的内容
         summary_nodes = nodes
         fmt_node_txts = []
         for idx in range(len(summary_nodes)):
             file_path = summary_nodes[idx].node.metadata["file_path"]
-            db = file_path.split("\\")[-1].split(".")[0].strip()
+            db = Path(file_path).stem
             fmt_node_txts.append(
                 f"### Database Name: {db}\n#Following is the table creation statement for the database {db}\n"
                 f"{summary_nodes[idx].get_content(metadata_mode=MetadataMode.LLM)}"
@@ -650,7 +604,7 @@ def get_all_schemas_from_schema_text(
         schemas = "\n\n".join(fmt_node_txts)
 
     if output_format == "all":
-        return databases, schemas, nodes
+        return schemas, nodes
     else:
         return schemas
 
