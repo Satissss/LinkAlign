@@ -161,7 +161,7 @@ def save_dataset(
     # 确保目录已创建
     assert new_data_source
     new_data_source = Path(new_data_source) if isinstance(new_data_source, str) else new_data_source
-    assert new_data_source.is_file()
+
     new_data_source.parent.mkdir(parents=True, exist_ok=True)
 
     if new_data_source.suffix == ".json":
