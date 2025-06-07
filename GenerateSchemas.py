@@ -299,7 +299,7 @@ def get_schema(
     if open_schema_linking:
         # 模式链接，提取生成 SQL 语句所需的表和列
         context = parse_schema_from_df(df)
-        schema_links = SchemaLinkingTool.generate_by_multi_agent(llm=llm, query=row["question"],
+        schema_links = SchemaLinkingTool.generate_by_multi_agent(llm=llm, query=question,
                                                                  context=context,
                                                                  turn_n=1, linker_num=3
                                                                  )
