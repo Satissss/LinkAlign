@@ -77,16 +77,16 @@ def parse_schemas_from_nodes(
 
 
 def parse_schema_from_df(df: pd.DataFrame) -> str:
-    grouped = df.groupby('table_name')
+    grouped = df.groupby('Table Name')
     output_lines = []
 
     for table_name, group in grouped:
         columns = []
         for _, row in group.iterrows():
-            col_type = row["column_types"]
+            col_type = row["Field Name"]
             if isinstance(col_type, str) and len(col_type) > 150:
                 col_type = col_type[:150]
-            columns.append(f'{row["column_name"]}(Type: {col_type})')
+            columns.append(f'{row["Field Name"]}(Type: {col_type})')
 
         line = f'### Table {table_name}, columns = [{", ".join(columns)}]'
         output_lines.append(line)
